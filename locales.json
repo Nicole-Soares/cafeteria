@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "nombre": "Cafeteria A",
+        "descripcion": "Esto es una descripcion",
+        "puntaje": "4.5",
+        "ubicacion": ["longitud", "latitud"],
+        "thumbnail": "https://media.revistagq.com/photos/5d5d383031110c000879872d/1:1/w_1080,h_1080,c_limit/logo-starbucks.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Cafeteria B",
+        "descripcion": "Esto es otra descripcion",
+        "puntaje": "4.9",
+        "ubicacion": ["longitud", "latitud"],
+        "thumbnail": "https://media.revistagq.com/photos/5d5d383031110c000879872d/1:1/w_1080,h_1080,c_limit/logo-starbucks.jpg"
+    }
+]
