@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Text, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { AppContext } from '../context/AppContext';
 
 export default function Cafeteria({
   id,
@@ -11,10 +12,11 @@ export default function Cafeteria({
   imagen,
   navigation,
 }) {
+  const {locales} = useContext(AppContext);
   return (
     <TouchableOpacity
       style={{width: 400, marginTop: 15}}
-      onPress={() => navigation.navigate('LocalScreen')}>
+      onPress={() => navigation.navigate('LocalScreen', {id})}>
       <View
         style={{
           display: 'flex',
@@ -58,9 +60,7 @@ export default function Cafeteria({
           <Icon name="star" color="yellow" size={20} />
           <Text>{puntaje}</Text>
         </View>
-        
       </View>
-    
     </TouchableOpacity>
   );
 }

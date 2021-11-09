@@ -20,6 +20,11 @@ export default function MenuUsuario({navigation}) {
         onPress={() => navigation.navigate('HomeScreen')}>
         <Icon name="home" color="#D8DCD9" size={30} />
       </TouchableOpacity>
+      <TouchableOpacity
+        style={{width: '100%'}}
+        onPress={() => navigation.navigate('HomeScreen')}>
+        <Icon name="map" color="#D8DCD9" size={30} />
+      </TouchableOpacity>
       <Icon name="shopping-basket" color="#D8DCD9" size={30} />
       <TouchableOpacity onPress={() => navigation.navigate('SesionScreen')}>
         <Icon name="user" color="#D8DCD9" size={30} />

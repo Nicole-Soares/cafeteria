@@ -1,0 +1,32 @@
+{
+    "id": 1,
+    "nombre": "Cafeteria A",
+    "descripcion": "Esto es una descripcion",
+    "puntaje": "4.5",
+    "ubicacion": ["longitud", "latitud"],
+    "thumbnail": "https://media.revistagq.com/photos/5d5d383031110c000879872d/1:1/w_1080,h_1080,c_limit/logo-starbucks.jpg",
+    "productos":{
+        "cafe": {"descripcion": "Una descripcion", "datos": [
+            {"nombre": "cafe con leche", "precio": "15", "puntaje": "4.9"},
+            {"nombre": "latte", "precio": "15", "puntaje": "4.9"},
+            {"nombre": "lagrima", "precio": "15", "puntaje": "4.9"},
+            {"nombre": "cortado", "precio": "15", "puntaje": "4.9"},
+            {"nombre": "ristretto", "precio": "15", "puntaje": "4.9"},
+            {"nombre": "cappuccino", "precio": "15", "puntaje": "4.9"}
+        ]},
+        "bebidas":{"descripcion": "Una descripcion", "datos": [
+            {"nombre": "cool mango", "precio": "15", "puntaje": "4.9"},
+            {"nombre": "passion blend", "precio": "15", "puntaje": "4.9"},
+            {"nombre": "power mix", "precio": "15", "puntaje": "4.9"},
+            {"nombre": "sublime", "precio": "15", "puntaje": "4.9"},
+            {"nombre": "vitaligth", "precio": "15", "puntaje": "4.9"}
+        ]},
+        "comestibles":{"descripcion": "Una descripcion", "datos": [
+            {"nombre": "alfajor", "precio": "15", "puntaje": "4.9"},
+            {"nombre": "brownies", "precio": "15", "puntaje": "4.9"},
+            {"nombre": "budin", "precio": "15", "puntaje": "4.9"},
+            {"nombre": "roll", "precio": "15", "puntaje": "4.9"}
+        ]},
+        "otros": []
+    }
+}

@@ -58,7 +58,7 @@ export default function SesionScreen({navigation}) {
         </TouchableOpacity>
         <View style={{flexDirection:"row", width:"60%", justifyContent:"space-around"}}>
          <Text>Sos nuevo?</Text>
-         <TouchableOpacity>
+         <TouchableOpacity onPress={()=>navigation.navigate("RegistrarseScreen")}>
             <Text style={{color:"white"}}>Registrate</Text>
          </TouchableOpacity>
      </View>

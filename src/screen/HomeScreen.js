@@ -3,7 +3,7 @@ import {View, ActivityIndicator} from 'react-native';
 import {AppContext} from '../context/AppContext';
 import Cafeteria from '../componentes/Cafeteria';
 import MenuUsuario from '../componentes/MenuUsuario';
-import { SliderBox } from "react-native-image-slider-box";
+
 
 export default function HomeScreen({navigation}) {
   const {locales} = useContext(AppContext);
