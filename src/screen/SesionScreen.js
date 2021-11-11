@@ -9,65 +9,87 @@ export default function SesionScreen({navigation}) {
       style={{
         height: '100%',
         width: '100%',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: '#F9F0E1',
+        backgroundColor: 'white',
       }}>
-      <View
-        style={{
-          height: 400,
-          width: 300,
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderWidth: 2,
-          borderColor: '#D5D6D6',
-          backgroundColor: '#729C81',
-          shadowColor: '#171717',
-          shadowOffset: {width: -2, height: 4},
-          shadowOpacity: 0.2,
-          shadowRadius: 3,
-          elevation: 2,
-        }}>
-        <TextInput
-          placeholder="Ingresa tu username"
-          style={{
-            borderWidth: 2,
-            borderColor: '#D5D6D6',
-            width: '80%',
-            marginBottom: 5,
-          }}
-        />
-        <TextInput
-          placeholder="Ingresa tu password"
-          style={{
-            borderWidth: 2,
-            borderColor: '#D5D6D6',
-            width: '80%',
-            marginBottom: 5,
-          }}
-        />
-        <TouchableOpacity
-          style={{
-            borderWidth: 2,
-            borderColor: '#D5D6D6',
-            width: 100,
-            marginBottom: 5,
-            alignItems: 'center',
-          }}>
-          <Text>Ingresar</Text>
-        </TouchableOpacity>
-        <View style={{flexDirection:"row", width:"60%", justifyContent:"space-around"}}>
-         <Text>Sos nuevo?</Text>
-         <TouchableOpacity onPress={()=>navigation.navigate("RegistrarseScreen")}>
-            <Text style={{color:"white"}}>Registrate</Text>
-         </TouchableOpacity>
-     </View>
-      </View>
-     
+      
+        <View style={{height:"80%", justifyContent:"center"}}>
+        <View style={{justifyContent:"space-around"}}>
+          <Text>Correo electronico</Text>
+          <TextInput
+            style={{
+              borderColor: 'white',
+              borderBottomColor: '#D5D6D6',
+              borderWidth: 2,
+              width: '80%',
+              marginBottom: 5,
+              width: '100%',
+            }}
+          />
+        </View>
+        <View>
+          <Text>Contraseña</Text>
+          <TextInput
+            style={{
+              borderColor: 'white',
+              borderBottomColor: '#D5D6D6',
+              borderWidth: 2,
+              width: '80%',
+              marginBottom: 5,
+              width: '100%',
+            }}
+          />
+        </View>
 
-      <View style={{top: 165, width: '100%'}}>
+        <View>
+          <TouchableOpacity
+            style={{
+              borderWidth: 2,
+              borderColor: '#729C81',
+              borderRadius: 5,
+              width: '100%',
+              height: 40,
+              marginBottom: 5,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#729C81',
+            }}>
+            <Text style={{color: 'white'}}>Ingresar</Text>
+          </TouchableOpacity>
+        </View>
+         <View>
+           <Text>¿Olvidaste tu contraseña?</Text>
+         </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            width: '100%',
+            height: 40,
+            marginTop:50
+          }}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('RegistrarseScreen')}
+            style={{
+              borderWidth: 2,
+              borderColor: '#729C81',
+              borderRadius: 5,
+              width: 370,
+              height: 40,
+              marginBottom: 5,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#729C81',
+            }}>
+            <Text style={{color: 'white'}}>Crear cuenta</Text>
+          </TouchableOpacity>
+        </View>
+        </View>
+
+      <View style={{width: '100%'}}>
         <MenuUsuario navigation={navigation} />
       </View>
-    </View>
+      </View>
+   
   );
 }

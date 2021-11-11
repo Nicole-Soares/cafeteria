@@ -16,16 +16,16 @@
         ]},
         "bebidas":{"descripcion": "Una descripcion", "datos": [
             {"nombre": "cool mango", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "passion blend", "precio": "15", "puntaje": "4.9"},
-            {"nombre": "power mix", "precio": "15", "puntaje": "4.9"},
-            {"nombre": "sublime", "precio": "15", "puntaje": "4.9"},
-            {"nombre": "vitaligth", "precio": "15", "puntaje": "4.9"}
+            {"nombre": "passion blend", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
+            {"nombre": "power mix", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
+            {"nombre": "sublime", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
+            {"nombre": "vitaligth", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"}
         ]},
         "comestibles":{"descripcion": "Una descripcion", "datos": [
-            {"nombre": "alfajor", "precio": "15", "puntaje": "4.9"},
-            {"nombre": "brownies", "precio": "15", "puntaje": "4.9"},
-            {"nombre": "budin", "precio": "15", "puntaje": "4.9"},
-            {"nombre": "roll", "precio": "15", "puntaje": "4.9"}
+            {"nombre": "alfajor", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
+            {"nombre": "brownies", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
+            {"nombre": "budin", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
+            {"nombre": "roll", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"}
         ]},
         "otros": []
     }

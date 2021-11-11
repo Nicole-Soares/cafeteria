@@ -11,6 +11,8 @@ import MenuUsuario from '../componentes/MenuUsuario';
 import {SliderBox} from 'react-native-image-slider-box';
 import {AppContext} from '../context/AppContext';
 import {ScrollView} from 'react-native-gesture-handler';
+import Cafe from '../componentes/Cafe';
+import Jugo from '../componentes/Jugo';
 
 const customData = require('../../cafeteria.json');
 
@@ -35,8 +37,8 @@ export default function LocalScreen({id, navigation}) {
   }, []); */
 
   return (
-    <ScrollView>
-      <View style={{backgroundColor: '#F9F0E1', height: '100%'}}>
+    <ScrollView stickyHeaderIndices={[10]}>
+      <View style={{backgroundColor: '#F9F0E1', height: '100%', width:"100%"}}>
         <View
           style={{
             backgroundColor: '#729C81',
@@ -63,36 +65,18 @@ export default function LocalScreen({id, navigation}) {
             circleLoop={true}
           />
         </View>
-
+         <View style={{borderColor:"pink", borderWidth:2, height:"100%", justifyContent:"space-around"}}>
+        <View>
         <View
           style={{
-            marginTop: 20,
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: '100%',
-          }}>
-          <View style={{width: '100%', marginLeft: 20}}>
-            <Text style={{fontSize: 25}}>Top 5</Text>
-            <View
-              style={{
-                width: '90%',
-                borderWidth: 1,
-                borderColor: '#D8DCD9',
-              }}></View>
-            <Text>Top 5...</Text>
-          </View>
-        </View>
-        <View
-          style={{
-            marginTop: 20,
-            justifyContent: 'center',
+          
+            justifyContent: 'space-between',
             alignItems: 'center',
             width: '100%',
           }}>
           <View style={{width: '90%', marginBottom: 10}}>
             <Text style={{fontSize: 20}}>CAFÉ</Text>
           </View>
-
           <View
             style={{
               width: '90%',
@@ -108,6 +92,10 @@ export default function LocalScreen({id, navigation}) {
               shadowRadius: 2.62,
 
               elevation: 4,
+              borderColor:"pink",
+              borderWidth:2,
+              justifyContent:"space-around",
+             
             }}>
             {cafeteria.productos.cafe.datos.map(cafe => {
               return (
@@ -117,42 +105,18 @@ export default function LocalScreen({id, navigation}) {
                     width: '90%',
                     flexDirection: 'row',
                     alignItems: 'center',
-                    marginTop: 15,
-                    marginBottom:15
+                 
+                    borderColor:"pink",
+                    borderWidth:2
                   }}>
-                  <View >
-                    <Image
-                      source={{uri: cafe.imagen}}
-                      style={{height: 80, width: 80, borderRadius: 5}}
-                    />
-                  </View>
-                  <View>
-                    <View>
-                      <Text style={{fontSize: 20}}>
-                        {cafe.nombre.toUpperCase()}
-                      </Text>
-                    </View>
-
-                    <View>
-                      <Text style={{fontSize: 15, color: 'gold'}}>
-                        $ {cafe.precio}
-                      </Text>
-                    </View>
-                    <View>
-                      <Text style={{fontSize: 15, color: 'green'}}>
-                        {cafe.puntaje}
-                      </Text>
-                    </View>
-                  </View>
-                  <View>
-                    <TouchableOpacity>
-                      <Text>flecha</Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
+                 <Cafe imagen={cafe.imagen} nombre={cafe.nombre} puntaje={cafe.puntaje} precio={cafe.precio}/>
+                 </View>
               );
             })}
           </View>
+        </View>
+       
+         
         </View>
 
         <View
@@ -165,10 +129,10 @@ export default function LocalScreen({id, navigation}) {
           <View style={{width: '90%', marginBottom: 10}}>
             <Text style={{fontSize: 25}}>Jugos</Text>
           </View>
-
+         <TouchableOpacity>
           <View
             style={{
-              width: '90%',
+              width: "85%",
               backgroundColor: 'white',
               justifyContent: 'center',
               alignItems: 'center',
@@ -191,34 +155,14 @@ export default function LocalScreen({id, navigation}) {
                     flexDirection: 'row',
                     alignItems: 'center',
                     marginTop: 15,
+                    marginBottom:15
                   }}>
-                     <View >
-                    <Image
-                      source={{uri: bebida.imagen}}
-                      style={{height: 80, width: 80, borderRadius: 5}}
-                    />
-                  </View>
-                  <View>
-                  <View >
-                    <Text style={{fontSize: 20}}>{bebida.nombre.toUpperCase()}</Text>
-                  </View>
-
-                  <View>
-                    <Text style={{fontSize: 15, color:"gold"}}>$ {bebida.precio}</Text>
-                  </View>
-                  <View>
-                    <Text style={{fontSize: 15, color:"green"}}>{bebida.puntaje}</Text>
-                  </View>
-                  </View>
-                  <View>
-                    <TouchableOpacity>
-                      <Text>flecha</Text>
-                    </TouchableOpacity>
-                  </View>
+                    <Jugo nombre={bebida.nombre} precio={bebida.precio} puntaje={bebida.puntaje} imagen={bebida.imagen}/>
                 </View>
               );
             })}
           </View>
+          </TouchableOpacity>
         </View>
         <View
           style={{
@@ -230,9 +174,9 @@ export default function LocalScreen({id, navigation}) {
             <View style={{width: '90%', marginBottom: 10}}>
             <Text style={{fontSize: 25}}>Dulces</Text>
             </View>
-            
+         
           <View style={{
-              width: '90%',
+              width: '83%',
               backgroundColor: 'white',
               justifyContent: 'center',
               alignItems: 'center',
@@ -253,12 +197,14 @@ export default function LocalScreen({id, navigation}) {
                 <View
                 style={{
                   justifyContent: 'space-between',
-                  width: '90%',
+                  width: '100%',
                   flexDirection: 'row',
                   alignItems: 'center',
                   marginTop: 15,
                 }}>
+                  <TouchableOpacity>
                     <View >
+                      
                     <Image
                       source={{uri: comida.imagen}}
                       style={{height: 80, width: 80, borderRadius: 5}}
@@ -276,19 +222,19 @@ export default function LocalScreen({id, navigation}) {
                     <Text style={{fontSize: 15, color:"green"}}>{comida.puntaje}</Text>
                   </View>
                   </View>
-                  <View>
-                    <TouchableOpacity>
-                      <Text>flecha</Text>
-                    </TouchableOpacity>
-                  </View>
+                  
+                  </TouchableOpacity>
                 </View>
+                
               );
             })}
+            
           </View>
+         
         </View>
-
+        </View>
         <View
-          style={{justifyContent: 'flex-end', height: '35%', width: '100%'}}>
+          style={{borderColor:"pink", borderWidth:2, width: '100%'}}>
           <MenuUsuario navigation={navigation} />
         </View>
       </View>
