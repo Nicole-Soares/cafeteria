@@ -25,6 +25,7 @@
             {"nombre": "alfajor", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
             {"nombre": "brownies", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
             {"nombre": "budin", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
+            {"nombre": "roll", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
             {"nombre": "roll", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"}
         ]},
         "otros": []
