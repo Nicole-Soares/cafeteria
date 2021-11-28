@@ -7,10 +7,13 @@ export default function MenuUsuario({navigation}) {
   return (
     <View
       style={{
-        borderColor: '#D5D6D6',
+        borderColor: '#729C81',
         borderWidth: 2,
         flexDirection: 'row',
         height: 50,
+        elevation:100,
+        zIndex:100,
+        width:"100%",
         justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor:"#729C81"

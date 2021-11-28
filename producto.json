@@ -1,0 +1,53 @@
+{
+    "id": 7,
+    "nombre": "cool mango",
+    "descripcion": "una descripcion cualquiera",
+    "precio": "15",
+    "puntaje": "4.9",
+    "imagen": "https://cdn2.cocinadelirante.com/sites/default/files/images/2020/04/recetas-de-licuados-y-jugos-con-avena-y-frutas.jpg",
+    "opciones": [
+      {
+        "nombre": "Variedad",
+        "data": [
+          {
+            "id": 54,
+            "nombre": "House blend"
+          },
+          {
+            "id": 75,
+            "nombre": "Single Origen"
+          }
+        ]
+      },
+      {
+        "nombre": "Tamaño",
+        "data": [
+          {
+            "id": 83,
+            "nombre": "Corto"
+          },
+          {
+            "id": 89,
+            "nombre": "Largo"
+          }
+        ]
+      },
+      {
+        "nombre": "Leche",
+        "data": [
+          {
+            "id": 92,
+            "nombre": "Almendras"
+          },
+          {
+            "id": 97,
+            "nombre": "Entera"
+          },
+          {
+            "id": 99,
+            "nombre": "Descremada"
+          }
+        ]
+      }
+    ]
+  }

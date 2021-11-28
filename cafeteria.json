@@ -3,32 +3,139 @@
     "nombre": "Cafeteria A",
     "descripcion": "Esto es una descripcion",
     "puntaje": "4.5",
-    "ubicacion": ["longitud", "latitud"],
+    "ubicacion": [
+      "longitud",
+      "latitud"
+    ],
     "thumbnail": "https://media.revistagq.com/photos/5d5d383031110c000879872d/1:1/w_1080,h_1080,c_limit/logo-starbucks.jpg",
-    "productos":{
-        "cafe": {"descripcion": "Una descripcion", "datos": [
-            {"nombre": "cafe con leche", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "latte", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "lagrima", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "cortado", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "ristretto", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "cappuccino", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"}
-        ]},
-        "bebidas":{"descripcion": "Una descripcion", "datos": [
-            {"nombre": "cool mango", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "passion blend", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "power mix", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "sublime", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "vitaligth", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"}
-        ]},
-        "comestibles":{"descripcion": "Una descripcion", "datos": [
-            {"nombre": "alfajor", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "brownies", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "budin", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "roll", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"},
-            {"nombre": "roll", "precio": "15", "puntaje": "4.9", "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"}
-        ]},
-        "otros": []
+    "productos": {
+      "cafe": {
+        "descripcion": "Una descripcion",
+        "datos": [
+          {
+            "id": 1,
+            "nombre": "cafe con leche",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"
+          },
+          {
+            "id": 2,
+            "nombre": "latte",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"
+          },
+          {
+            "id": 3,
+            "nombre": "lagrima",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"
+          },
+          {
+            "id": 4,
+            "nombre": "cortado",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"
+          },
+          {
+            "id": 5,
+            "nombre": "ristretto",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"
+          },
+          {
+            "id": 6,
+            "nombre": "cappuccino",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/07/17/5e9984548c06a.jpeg"
+          }
+        ]
+      },
+      "bebidas": {
+        "descripcion": "Una descripcion",
+        "datos": [
+          {
+            "id": 7,
+            "nombre": "cool mango",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://cdn2.cocinadelirante.com/sites/default/files/images/2020/04/recetas-de-licuados-y-jugos-con-avena-y-frutas.jpg"
+          },
+          {
+            "id": 8,
+            "nombre": "passion blend",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://www.cocinavital.mx/wp-content/uploads/2019/02/jugo-naranja.jpg"
+          },
+          {
+            "id": 9,
+            "nombre": "power mix",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrjfYvb4f14BEwUswads6iAHcMImYqIjUaZw&usqp=CAU"
+          },
+          {
+            "id": 10,
+            "nombre": "sublime",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://media.ultimahora.com/p/45353cabf4d81250add2f21723de0cb9/adjuntos/161/imagenes/000/916/0000916530/jugo-verdeejpg.jpg"
+          },
+          {
+            "id": 11,
+            "nombre": "vitaligth",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://static2.elcorreo.com/www/multimedia/202008/27/media/cortadas/salud28-kVIC-U12032538790IL-624x411@El%20Correo.jpg"
+          }
+        ]
+      },
+      "comestibles": {
+        "descripcion": "Una descripcion",
+        "datos": [
+          {
+            "id": 12,
+            "nombre": "alfajor",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://images.lavoz.com.ar/resizer/kPJc6PR3KleBh0Gd0FmyW_g8gLE=/1023x682/smart/cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/6EDGJVGB2FHAHMRM3FEBBVFTM4.jpg"
+          },
+          {
+            "id": 13,
+            "nombre": "brownies",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://d1uz88p17r663j.cloudfront.net/original/05e31a733a95ebc4db489b4c3ed64f2e_Chocolate_Caramel_Brownies_28703_400x400_NEW.jpg"
+          },
+          {
+            "id": 14,
+            "nombre": "budin",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://2.bp.blogspot.com/-dnSowjSgvxg/XHV2NNDqiFI/AAAAAAAAKoI/sYy66qU816AryfWjtd3Dgur1nfCstbjkgCLcBGAs/s1600/DSCN1383.png"
+          },
+          {
+            "id": 15,
+            "nombre": "roll",
+            "precio": "15",
+            "puntaje": "4.9",
+            "imagen": "https://www.recetasderechupete.com/wp-content/uploads/2018/12/Rollitos-de-canela-2.jpg"
+          },
+          {
+            "id": 16,
+            "nombre": "torta oreo",
+            "precio": "20",
+            "puntaje": "4.9",
+            "imagen": "https://i1.wp.com/blog.marianlaquecocina.com/wp-content/uploads/2017/03/dsc07807.jpg?fit=3008%2C2000&ssl=1"
+          }
+        ]
+      },
+      "otros": []
     }
-    
-}
+  }
