@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
         elevation:100
     },
     contenedorAgregarProducto: {
-        backgroundColor: '#F9F0E1',
+        backgroundColor: '#F2F1F1',
         height: '100%',
         alignItems: 'center',
     },
@@ -41,8 +41,7 @@ export const styles = StyleSheet.create({
         display: 'flex',
         marginTop: 10,
         width: '90%',
-        
-        backgroundColor: 'white',
+    backgroundColor: 'white',
         borderWidth: 2,
         borderColor: '#E2E2E2',
         shadowColor: '#000',
@@ -112,5 +111,15 @@ export const styles = StyleSheet.create({
         shadowRadius: 2.22,
 
         elevation: 3,
+    },
+    textoDeSeleccionado: {
+        textAlign:"center", fontSize:13,  
+                        letterSpacing: 3,
+                        borderColor:"grey",
+                        borderWidth:1
+    },
+    textoDeNoSeleccionado: {
+        textAlign:"center", fontSize:13,  
+                        letterSpacing: 3,
     }
 })

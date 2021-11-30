@@ -5,10 +5,10 @@ import MenuUsuario from '../componentes/MenuUsuario';
 
 import Listado from '../componentes/Listado';
 
-export default function LocalScreen({navigation}) {
+export default function LocalScreen({navigation, id}) {
   return (
     <View style={{height: '100%', width: '100%'}}>
-      <Listado navigation={navigation} />
+      <Listado navigation={navigation} id={id} />
       <View
         style={{
           width: '100%',

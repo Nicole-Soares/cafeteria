@@ -6,6 +6,10 @@ import SesionScreen from '../screen/SesionScreen';
 import RegistrarseScreen from '../screen/RegistrarseScreen';
 import Cafe from '../componentes/Cafe';
 import InfoCafe from '../screen/InfoCafe';
+import MapaLocales from '../screen/MapaLocales';
+import InformacionCafeteria from '../screen/InformacionCafeteria';
+import Listado from '../componentes/Listado';
+import Orden from '../screen/Orden';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +26,10 @@ export default function StackNavigation() {
       <Stack.Screen name="RegistrarseScreen" component={RegistrarseScreen} />
       <Stack.Screen name="Cafe" component={Cafe} />
       <Stack.Screen name="InfoCafe" component={InfoCafe} />
+      <Stack.Screen name="MapaLocales" component={MapaLocales} />
+      <Stack.Screen name="InformacionCafeteria" component={InformacionCafeteria} />
+      <Stack.Screen name="Listado" component={Listado} />
+      <Stack.Screen name="Orden" component={Orden} />
     </Stack.Navigator>
   );
 }

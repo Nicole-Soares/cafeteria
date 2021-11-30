@@ -2,10 +2,10 @@ import React from "react";
 import {View, Text, Image, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Cafe({imagen, nombre, precio, puntaje, navigation}){
+export default function Cafe({imagen, nombre, precio, puntaje, navigation, id}){
     return(
       <View style={{justifyContent:"space-between", alignItems:"center", flexDirection:"row", width:"90%"}}>
-      <TouchableOpacity style={{flexDirection:"row", width:"100%",  justifyContent:"space-between"}} onPress={()=>navigation.navigate("InfoCafe")}>
+      <TouchableOpacity style={{flexDirection:"row", width:"100%",  justifyContent:"space-between"}} onPress={()=>navigation.navigate("InfoCafe", {id})}>
   <View >
      
               <Image

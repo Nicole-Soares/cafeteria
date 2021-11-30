@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import Navbar from './Navbar';
 import {SliderBox} from 'react-native-image-slider-box';
@@ -12,7 +12,7 @@ import {styles} from '../theme/Style';
 const customData = require('../../cafeteria.json');
 
 export default function Listado({id, navigation}) {
-  const {cafeteria} = useContext(AppContext);
+  const {cafeteria, listadoCafeteriasOriginal, setLocal} = useContext(AppContext);
 
   /*useEffect(() => {
     
@@ -29,11 +29,16 @@ export default function Listado({id, navigation}) {
    
   }, []); */
 
+
+
+
+
+
   return (
     <View style={{flex: 1}}>
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
         <View
-          style={{backgroundColor: '#F9F0E1', height: '100%', width: '100%'}}>
+          style={{backgroundColor: '#F2F1F1', height: '100%', width: '100%'}}>
           <View
             style={{
               backgroundColor: '#729C81',
@@ -160,10 +165,12 @@ export default function Listado({id, navigation}) {
                         marginBottom: 15,
                       }}>
                       <Jugo
+                      id={bebida.id}
                         nombre={bebida.nombre}
                         precio={bebida.precio}
                         puntaje={bebida.puntaje}
                         imagen={bebida.imagen}
+                        navigation={navigation}
                       />
                     </View>
                   );
@@ -210,10 +217,12 @@ export default function Listado({id, navigation}) {
                         marginTop: 15,
                       }}>
                       <Dulce
+                      id={comida.id}
                         nombre={comida.nombre}
                         precio={comida.precio}
                         imagen={comida.imagen}
                         puntaje={comida.puntaje}
+                        navigation={navigation}
                       />
                     </View>
                   );

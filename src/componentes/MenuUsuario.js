@@ -25,7 +25,7 @@ export default function MenuUsuario({navigation}) {
       </TouchableOpacity>
       <TouchableOpacity
         style={{width: '100%'}}
-        onPress={() => navigation.navigate('HomeScreen')}>
+        onPress={() => navigation.navigate('MapaLocales')}>
         <Icon name="map" color="#D8DCD9" size={30} />
       </TouchableOpacity>
       <Icon name="shopping-basket" color="#D8DCD9" size={30} />

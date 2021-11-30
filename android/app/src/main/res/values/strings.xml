@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">cafeterias</string>
+      <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAh7d27j1rmBNQ-4MCZm3l9y2NoMozSEuw</string>
 </resources>

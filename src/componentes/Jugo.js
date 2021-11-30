@@ -2,10 +2,10 @@ import React from "react";
 import {View, Text, Image, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Jugo({imagen, nombre, puntaje, precio}){
+export default function Jugo({imagen, nombre, puntaje, precio, navigation, id}){
     return(
       <View style={{justifyContent:"space-between", alignItems:"center", flexDirection:"row", width:"90%"}}>
-      <TouchableOpacity style={{flexDirection:"row", width:"100%",  justifyContent:"space-between"}}>
+      <TouchableOpacity style={{flexDirection:"row", width:"100%",  justifyContent:"space-between"}} onPress={()=>navigation.navigate("InfoCafe", {id})}>
   <View >
      
               <Image

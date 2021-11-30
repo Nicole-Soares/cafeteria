@@ -12,7 +12,7 @@ export default function Cafeteria({
   imagen,
   navigation,
 }) {
-  const {locales} = useContext(AppContext);
+  
   return (
     <TouchableOpacity
       style={{width: 400, marginTop: 15}}
