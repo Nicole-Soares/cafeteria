@@ -18,7 +18,7 @@ export default function InformacionCafeteria(props){
         }
       }, [locales]);
 
-      console.log(locales)
+      
 
 if (locales){
     return(

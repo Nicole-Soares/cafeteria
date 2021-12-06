@@ -2,12 +2,13 @@ import React from "react";
 import {View, Text, Image, TouchableOpacity} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { styles } from "../theme/Style";
 
 export default function Dulce({imagen, nombre, precio, puntaje, navigation, id}){
    return(
       
-    <View style={{justifyContent:"space-between", alignItems:"center", flexDirection:"row", width:"90%"}}>
-      <TouchableOpacity style={{flexDirection:"row", width:"100%",  justifyContent:"space-between"}} onPress={()=>navigation.navigate("InfoCafe", {id})}>
+    <View style={styles.contenedorDulce}>
+      <TouchableOpacity style={styles.botonDulce} onPress={()=>navigation.navigate("InfoCafe", {id})}>
   <View >
      
               <Image

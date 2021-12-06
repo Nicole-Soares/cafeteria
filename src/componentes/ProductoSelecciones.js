@@ -32,7 +32,9 @@ export default function ProductoSelecciones({nombre, item, selecciones, setSelec
     setSelectedValue(itemValue);
     selecciones.push(itemValue)
     setSelecciones(selecciones);
+    
   }
+  console.log(selecciones)
 
   return (
     <View style={{alignSelf: 'center', width: '95%'}}>

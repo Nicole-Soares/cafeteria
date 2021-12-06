@@ -1,22 +1,36 @@
 [
-    {
-        "id": 1,
-        "nombre": "Cafeteria A",
-        "descripcion": "Esto es una descripcion",
-        "puntaje": "4.5",
-        "longitud": "-58.26374",
-        "latitud": "-34.72904",
-        "direccion":"Lorem ipsum",
-        "thumbnail": "https://media.revistagq.com/photos/5d5d383031110c000879872d/1:1/w_1080,h_1080,c_limit/logo-starbucks.jpg"
-    },
-    {
-        "id": 2,
-        "nombre": "Cafeteria B",
-        "descripcion": "Esto es otra descripcion",
-        "puntaje": "4.9",
-        "longitud": "-58.26380",
-        "latitud": "-34.72919",
-        "direccion":"Lorem ipsum",
-        "thumbnail": "https://media.revistagq.com/photos/5d5d383031110c000879872d/1:1/w_1080,h_1080,c_limit/logo-starbucks.jpg"
-    }
+  {
+    "id": 1,
+    "nombre": "Cafeteria A",
+    "descripcion": "Esto es una descripcion",
+    "puntaje": "4.5",
+    "longitud": "-58.26374",
+    "latitud": "-34.72904",
+    "direccion": "Lorem ipsum",
+    "thumbnail": "https://media.revistagq.com/photos/5d5d383031110c000879872d/1:1/w_1080,h_1080,c_limit/logo-starbucks.jpg",
+    "horario": [
+      {
+        "apertura": "9:00",
+        "intervalo": 20,
+        "cierre": "20:00"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Cafeteria B",
+    "descripcion": "Esto es otra descripcion",
+    "puntaje": "4.9",
+    "longitud": "-58.26380",
+    "latitud": "-34.72919",
+    "direccion": "Lorem ipsum",
+    "thumbnail": "https://media.revistagq.com/photos/5d5d383031110c000879872d/1:1/w_1080,h_1080,c_limit/logo-starbucks.jpg",
+    "horario": [
+      {
+        "apertura": "8:00",
+        "intervalo": 20,
+        "cierre": "20:00"
+      }
+    ]
+  }
 ]

@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, TextInput} from 'react-native';
 import MenuUsuario from '../componentes/MenuUsuario';
+import { styles } from '../theme/Style';
 
 export default function RegistrarseScreen({navigation}) {
   /*const login = async () => {  
@@ -33,105 +34,48 @@ export default function RegistrarseScreen({navigation}) {
 
   return (
     <View
-      style={{
-        height: '100%',
-        width: '100%',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: 'white',
-      }}>
+      style={styles.contenedorBotonRegistrarse}>
       <View style={{height: '80%',  justifyContent:"center"}}>
         <View>
           <Text>Nombre</Text>
           <TextInput
            
-            style={{
-              borderColor: 'white',
-              borderBottomColor: '#D5D6D6',
-              borderWidth: 2,
-              width: '80%',
-              marginBottom: 5,
-              width: '100%',
-            }}
+            style={styles.textInputRegistrarse}
           />
         </View>
         <View>
           <Text>Apellido</Text>
           <TextInput
-            style={{
-              borderColor: 'white',
-              borderBottomColor: '#D5D6D6',
-              borderWidth: 2,
-              width: '80%',
-              marginBottom: 5,
-              width: '100%',
-            }}
+            style={styles.textInputRegistrarse}
           />
         </View>
         <View>
           <Text>Correo electronico</Text>
           <TextInput
-            style={{
-              borderColor: 'white',
-              borderBottomColor: '#D5D6D6',
-              borderWidth: 2,
-              width: '80%',
-              marginBottom: 5,
-              width: '100%',
-            }}
+            style={styles.textInputRegistrarse}
           />
         </View>
         <View>
           <Text>Contraseña</Text>
           <TextInput
-            style={{
-              borderColor: 'white',
-              borderBottomColor: '#D5D6D6',
-              borderWidth: 2,
-              width: '80%',
-              marginBottom: 5,
-              width: '100%',
-            }}
+            style={styles.textInputRegistrarse}
           />
         </View>
         <View>
           <Text>Telefono</Text>
           <TextInput
-            style={{
-              borderColor: 'white',
-              borderBottomColor: '#D5D6D6',
-              borderWidth: 2,
-              width: '80%',
-              marginBottom: 5,
-              width: '100%',
-            }}
+            style={styles.textInputRegistrarse}
           />
         </View>
         <View >
           <TouchableOpacity
-            style={{
-              borderWidth: 2,
-              borderColor: '#729C81',
-              borderRadius: 5,
-              width: '100%',
-              height: 40,
-              marginBottom: 5,
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: '#729C81',
-            }}>
+            style={styles.botonRegistrarse}>
             <Text style={{color: 'white'}}>Registrarme</Text>
           </TouchableOpacity>
         </View>
 
         <View
-          style={{
-            flexDirection: 'row',
-            width: '70%',
-            height: 40,
-            justifyContent: 'space-around',
-           
-          }}>
+          style={styles.contenedorRegistrado}>
           <Text>Estas registrado?</Text>
           <TouchableOpacity onPress={() => navigation.navigate('SesionScreen')}>
             <Text style={{color: 'grey'}}>Inicia Sesion</Text>

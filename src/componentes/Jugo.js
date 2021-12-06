@@ -1,11 +1,12 @@
 import React from "react";
 import {View, Text, Image, TouchableOpacity} from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { styles } from "../theme/Style";
 
 export default function Jugo({imagen, nombre, puntaje, precio, navigation, id}){
     return(
-      <View style={{justifyContent:"space-between", alignItems:"center", flexDirection:"row", width:"90%"}}>
-      <TouchableOpacity style={{flexDirection:"row", width:"100%",  justifyContent:"space-between"}} onPress={()=>navigation.navigate("InfoCafe", {id})}>
+      <View style={styles.contenedorJugo}>
+      <TouchableOpacity style={styles.botonJugo} onPress={()=>navigation.navigate("InfoCafe", {id})}>
   <View >
      
               <Image

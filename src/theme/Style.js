@@ -53,6 +53,8 @@ export const styles = StyleSheet.create({
         shadowRadius: 2.22,
 
         elevation: 3,
+        justifyContent:"center",
+        alignItems:"center"
     },
     contenedorDeNombreYPrecio:{
         flexDirection: 'row',
@@ -121,5 +123,258 @@ export const styles = StyleSheet.create({
     textoDeNoSeleccionado: {
         textAlign:"center", fontSize:13,  
                         letterSpacing: 3,
+    },
+    contenedorMenuUsuario:{
+        borderColor: '#729C81',
+        borderWidth: 2,
+        flexDirection: 'row',
+        height: 50,
+        elevation:100,
+        zIndex:100,
+        width:"100%",
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        backgroundColor:"#729C81"
+    },
+    contenedorNavbar: {
+        flexDirection:"row", marginTop:80, elevation:2, justifyContent:"space-around",alignItems:"center", backgroundColor:"white", height:50, width:"80%", borderRadius:5
+    },
+    contenedorListado: {
+        backgroundColor: '#F2F1F1', height: '100%', width: '100%'
+    },
+    contenedorNavbarDelListado:{
+        backgroundColor: '#729C81',
+        height: 80,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    carrusel:{
+        justifyContent: 'center',
+        alignSelf: 'center',
+        width: 340,
+        height: 150,
+        marginTop: 50
+    },
+    contenedorListadoProductos:{
+        marginTop: 10,
+        height: '100%',
+        width: '100%'
+    },
+    contenedorListadoCafe:{
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%'
+    },
+    contenedorTextoTituloListado:{
+        width: '90%', marginBottom: 10
+    },
+    contenedorCardListadoCafe:{
+        width: '90%',
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+
+        elevation: 4,
+
+        justifyContent: 'space-around'
+    },
+    contenedorInfoCafe:{
+        justifyContent: 'space-between',
+        width: '90%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 15,
+        marginBottom: 15
+    },
+    contenedorDelTituloDelListadoDeJugos:{
+        marginTop: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%'
+    },
+    contenedorJugo:{
+        justifyContent:"space-between", alignItems:"center", flexDirection:"row", width:"90%"
+    },
+    botonJugo:{
+        flexDirection:"row", width:"100%",  justifyContent:"space-between"
+    },
+    contenedorDulce:{
+        justifyContent:"space-between", alignItems:"center", flexDirection:"row", width:"90%"
+    },
+    botonDulce:{
+        flexDirection:"row", width:"100%",  justifyContent:"space-between"
+    },
+    contenedorCafe:{
+        
+        justifyContent:"space-between", alignItems:"center", flexDirection:"row", width:"90%"
+
+    },
+    botonCafe:{
+        flexDirection:"row", width:"100%",  justifyContent:"space-between"
+    },
+    contenedorCafeteria:{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        width: '100%',
+        height: 100,
+        backgroundColor: 'white',
+        borderWidth: 2,
+        borderColor: '#E2E2E2',
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 3
+    },
+    contenedorPuntajeYPrecio:{
+        flexDirection: 'row',
+        borderWidth: 2,
+        borderRadius: 5,
+        borderColor: '#E1F980',
+        backgroundColor: '#E1F980'
+    },
+    contenedorTituloMapa:{
+        height: '10%',
+        backgroundColor: '#729C81',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    contenedorSesion:{
+        height: '100%',
+        width: '100%',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: 'white'
+    },
+    textInputSesion:{
+        borderColor: 'white',
+        borderBottomColor: '#D5D6D6',
+        borderWidth: 2,
+        width: '80%',
+        marginBottom: 5,
+        width: '100%'
+    },
+    textInputSesionContraseña:{
+        borderColor: 'white',
+        borderBottomColor: '#D5D6D6',
+        borderWidth: 2,
+        width: '80%',
+        marginBottom: 5,
+        width: '100%'
+    },
+    botonIngresarSesion:{
+        borderWidth: 2,
+              borderColor: '#729C81',
+              borderRadius: 5,
+              width: '100%',
+              height: 40,
+              marginBottom: 5,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#729C81'
+    },
+    contenedorBotonSesionCrearCuenta:{
+        flexDirection: 'row',
+        width: '100%',
+        height: 40,
+        marginTop:50
+    },
+    botonCrearCuentaSesion:{
+        borderWidth: 2,
+        borderColor: '#729C81',
+        borderRadius: 5,
+        width: 370,
+        height: 40,
+        marginBottom: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#729C81'
+    },
+    contenedorBotonRegistrarse:{
+        height: '100%',
+        width: '100%',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: 'white'
+    },
+    textInputRegistrarse:{
+        borderColor: 'white',
+        borderBottomColor: '#D5D6D6',
+        borderWidth: 2,
+        width: '80%',
+        marginBottom: 5,
+        width: '100%'
+    },
+    botonRegistrarse:{
+        borderWidth: 2,
+        borderColor: '#729C81',
+        borderRadius: 5,
+        width: '100%',
+        height: 40,
+        marginBottom: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#729C81'
+    },
+    contenedorRegistrado:{
+        flexDirection: 'row',
+        width: '70%',
+        height: 40,
+        justifyContent: 'space-around'
+    },
+    contenedorTituloSeleccionHorario:{
+        backgroundColor: '#729C81',
+        height: '20%',
+
+        alignItems: 'center'
+    },
+    contenedorPicker:{
+        borderColor: 'grey',
+        borderWidth: 1,
+        width: '90%',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    picker:{
+        height: 50,
+        width: '90%',
+        borderWidth: 1,
+        borderColor: 'black'
+    },
+    contenedorBotonPagar:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '20%'
+    },
+    botonPagarSeleccionHorario:{
+        backgroundColor: '#729C81',
+        width: 200,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    textoPagarSeleccionHorario:{
+        color: 'white', fontSize: 25, letterSpacing: 1
+    },
+    estiloBotonCarritoSinProductos: {
+        height:"100%",
+        marginTop:15
+    },
+    estiloBotonCarritoConProductos: {
+        height:"100%"
     }
 })

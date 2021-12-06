@@ -3,6 +3,10 @@ import {View, Text} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import MenuUsuario from '../componentes/MenuUsuario';
 import {AppContext} from '../context/AppContext';
+import { styles } from '../theme/Style';
+
+
+//este componente es el mapa que muestra las cafeterias
 
 export default function MapaLocales({navigation}) {
   const [currentPosition, setCurrentPosition] = useState({
@@ -16,12 +20,7 @@ export default function MapaLocales({navigation}) {
   return (
     <View style={{height: '100%'}}>
       <View
-        style={{
-          height: '10%',
-          backgroundColor: '#729C81',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+        style={styles.contenedorTituloMapa}>
         <Text style={{color: 'white', fontSize: 30}}>Locales</Text>
       </View>
       <View style={{height:"83%"}}>

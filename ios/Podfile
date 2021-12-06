@@ -12,6 +12,8 @@ target 'cafeterias' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-payments', :path => '../node_modules/react-native-payments'
+
   target 'cafeteriasTests' do
     inherit! :complete
     # Pods for testing

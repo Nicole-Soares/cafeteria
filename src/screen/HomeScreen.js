@@ -6,6 +6,8 @@ import MenuUsuario from '../componentes/MenuUsuario';
 import { styles } from '../theme/Style';
 import { ScrollView } from 'react-native-gesture-handler';
 
+//muestra el  listado de las cafeterias
+
 export default function HomeScreen({navigation}) {
   const {locales} = useContext(AppContext);
 

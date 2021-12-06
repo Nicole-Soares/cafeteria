@@ -15,6 +15,10 @@
        <meta-data
      android:name="com.google.android.geo.API_KEY"
      android:value="AIzaSyAh7d27j1rmBNQ-4MCZm3l9y2NoMozSEuw"/>
+       
+<meta-data
+  android:name="com.google.android.gms.wallet.api.enabled"
+  android:value="true" />
      <uses-library android:name="org.apache.http.legacy" android:required="false"/>
       <activity
         android:name=".MainActivity"
