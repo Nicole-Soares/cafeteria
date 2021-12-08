@@ -11,7 +11,7 @@ export default function SeleccionHorario(props) {
   const {cafeteria} = useContext(AppContext);
 
   const horariosDisponibles = (inicio, fin, intervalo) => {
-    console.log(cafeteria);
+   
     let fechaInicio = new Date();
     let fechaFin = new Date();
     fechaInicio.setHours(inicio.split(':')[0], inicio.split(':')[1]);
@@ -91,7 +91,7 @@ for(let inicio = apertura; inicio < cierre; inicio + intervalo){
       <View
         style={styles.contenedorBotonPagar}>
         <TouchableOpacity
-          style={styles.botonPagarSeleccionHorario} onPress={()=>props.navigation.navigate("ModosPagos")}>
+          style={styles.botonPagarSeleccionHorario} onPress={()=>props.navigation.navigate("Tarjetas")}>
           <Text style={styles.textoPagarSeleccionHorario}>
             Pagar
           </Text>

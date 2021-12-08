@@ -72,7 +72,7 @@ export default function InfoCafe({id, navigation}) {
     } else {
       pedidos.push({infoCafe, cantidad, selecciones});
       setPedidos(pedidos);
-      console.log(setPedidos);
+     
       navigation.navigate('Listado', {});
     }
   };

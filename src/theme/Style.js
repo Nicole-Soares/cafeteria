@@ -375,6 +375,7 @@ export const styles = StyleSheet.create({
         marginTop:15
     },
     estiloBotonCarritoConProductos: {
-        height:"100%"
+        height:"100%",
+       
     }
 })

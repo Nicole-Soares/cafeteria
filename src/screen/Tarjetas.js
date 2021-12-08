@@ -1,55 +1,114 @@
+import React, {useState, useContext} from 'react';
+import {View, Text, TouchableOpacity, Alert} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {AppContext} from '../context/AppContext';
+import MercadoPagoCheckout from '@blackbox-vision/react-native-mercadopago-px';
 
-import React, { useState, useEffect, useContext } from 'react';
-import {  View, Text, TouchableOpacity, Alert, Button } from 'react-native';
-import METHOD_DATA from "../../Method";
-import DETAILS from "../../Details";
-import { AppContext } from '../context/AppContext';
-import {CardField} from '@stripe/stripe-react-native';
+export default function Tarjetas({navigation}) {
+  const [paymentResult, setPaymentResult] = useState('En espera');
+  const {pedidos} = useContext(AppContext);
 
+  const getPreferenceId = async (payer, ...items) => {
 
+    console.log(items)
+    const response = await fetch(
+      `https://api.mercadopago.com/checkout/preferences?access_token=TEST-7337691703929395-120613-092e05faf570fef41c0c2863589c535b-116975793`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          items,
+          payer: {
+            email: payer,
+          },
+        }),
+      },
+    );
 
+    const preference = await response.json();
 
+    return preference.id;
+  };
 
+  const startCheckout = async () => {
+    listaNuevaPedidos = [];
+    let precio = 0;
+    let descripcion = '';
+    pedidos.map(pedido => {
+      
+      precio += parseInt(pedido.infoCafe.precio) * pedido.cantidad;
+      descripcion += ' | ' + pedido.infoCafe.nombre;
+    });
 
-export default function Tarjetas() {
+    let pedido = {
+                    title: 'Cafeteria Carlitos',
+                    description: descripcion,
+                    quantity: 1,
+                    currency_id: 'ARS',
+                    unit_price: parseInt(precio),
+                  }
 
-    const { setPublishableKey} = useContext(AppContext);
+    try {
+      const preferenceId = await getPreferenceId('payer@email.com', pedido);
+      
+      const payment = await MercadoPagoCheckout.createPayment({
+        publicKey: 'TEST-834e4286-0ac9-45cb-be99-50bda7dfb214',
+        preferenceId,
+      });
 
-    /*const fetchPublishableKey = async () => {
-      const key = await fetchKey(); // fetch key from your server here
-      setPublishableKey(key);
-    };
-  
-    useEffect(() => {
-      fetchPublishableKey();
-    }, []);*/
-  
-   const handlePayment = () =>{
+      setPaymentResult(payment);
+    } catch (err) {
+      Alert.alert('Something went wrong', err.message);
+    }
+  };
 
-   }
-
-
-    return(
-      <CardField
-      postalCodeEnabled={true}
-      placeholder={{
-        number: '4242 4242 4242 4242',
-      }}
-      cardStyle={{
-        backgroundColor: '#FFFFFF',
-        textColor: '#000000',
-      }}
-      style={{
-        width: '100%',
-        height: 50,
-        marginVertical: 30,
-      }}
-      onCardChange={(cardDetails) => {
-        console.log('cardDetails', cardDetails);
-      }}
-      onFocus={(focusedField) => {
-        console.log('focusField', focusedField);
-      }}
-    />
-    )
+  return (
+    <View style={{width: '100%', height: '100%'}}>
+      <View
+        style={{
+          backgroundColor: '#729C81',
+          width: '100%',
+          height: '5%',
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Listado')}
+          style={{flexDirection: 'row'}}>
+          <Icon
+            name="arrow-left"
+            size={20}
+            color="white"
+            style={{marginLeft: 10}}
+          />
+          <Text style={{marginLeft: 10, color: 'white'}}>
+            Volver al listado
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View
+        style={{height: '90%', justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+          onPress={startCheckout}
+          style={{
+            backgroundColor: '#729C81',
+            height: '10%',
+            justifyContent: 'center',
+            marginBottom: 10,
+          }}>
+          <Text style={{fontSize: 25, color: 'white'}}>
+            Acceder a MercadoPago
+          </Text>
+        </TouchableOpacity>
+        <Text style={{fontSize: 20}}>
+          Estado de transacción: {JSON.stringify(paymentResult)}
+        </Text>
+      </View>
+      <View
+        style={{
+          backgroundColor: '#729C81',
+          width: '100%',
+          height: '5%',
+        }}></View>
+    </View>
+  );
 }

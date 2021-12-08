@@ -18,7 +18,7 @@ export default function AppProvider({children}) {
   const [seleccionado, setSeleccionado] = useState(false);
   const [pedidos, setPedidos] = useState([]);
   const [idCafeteria, setIdCafeteria] = useState({});
-  const [publishableKey, setPublishableKey] = useState('');
+ 
  
 
   return (
@@ -34,8 +34,8 @@ export default function AppProvider({children}) {
         seleccionado, setSeleccionado,
         listadoOriginalProductos, setListadoOriginalProductos,
         pedidos, setPedidos,
-        idCafeteria, setIdCafeteria,
-        publishableKey, setPublishableKey
+        idCafeteria, setIdCafeteria
+       
       }}>
       {children}
     </AppContext.Provider>

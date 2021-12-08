@@ -11,7 +11,7 @@ import {NavigationContainer} from '@react-navigation/native';
 export default function Orden(props) {
   const {listadoOriginalProductos, pedidos} = useContext(AppContext);
 
-  console.log(pedidos)
+  
   if (pedidos) {
     return (
       <View>

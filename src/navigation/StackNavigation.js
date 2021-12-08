@@ -11,7 +11,6 @@ import InformacionCafeteria from '../screen/InformacionCafeteria';
 import Listado from '../componentes/Listado';
 import Orden from '../screen/Orden';
 import SeleccionHorario from '../screen/SeleccionHorario';
-import ModosPagos from '../screen/ModosPagos';
 import Tarjetas from '../screen/Tarjetas';
 
 const Stack = createStackNavigator();
@@ -34,7 +33,6 @@ export default function StackNavigation() {
       <Stack.Screen name="Listado" component={Listado} />
       <Stack.Screen name="Orden" component={Orden} />
       <Stack.Screen name="SeleccionHorario" component={SeleccionHorario} />
-      <Stack.Screen name="ModosPagos" component={ModosPagos} />
       <Stack.Screen name="Tarjetas" component={Tarjetas} />
     </Stack.Navigator>
   );
