@@ -34,7 +34,7 @@ export default function ProductoSelecciones({nombre, item, selecciones, setSelec
     setSelecciones(selecciones);
     
   }
-  console.log(selecciones)
+  
 
   return (
     <View style={{alignSelf: 'center', width: '95%'}}>

@@ -11,27 +11,33 @@ import {styles} from '../theme/Style';
 
 const customDataCafeteria = require('../../cafeteria.json');
 
-export default function Listado({id, navigation}) {
+export default function Listado(props) {
  
   const {cafeteria, listadoCafeteriasOriginal, setLocal, setCafeteria, idCafeteria, setIdCafeteria} =
     useContext(AppContext);
 
 
   
-  /*useEffect(() => {
+  useEffect(() => {
     
-     
-        try {
-          let peticion = await fetch("poner la api correspondiente/${id}");
+     async function obtenerCafeteria(){
+       
+       try {
+          console.log(props)
+          let peticion = await fetch(`http://vps-2290673-x.dattaweb.com/api/cafeterias/${props.id}/`);
           let res = await peticion.json();
           setCafeteria(res);
+          console.log(res)
           
         } catch (error) {
           console.error(error);
         }
       
+     }
+     obtenerCafeteria();
+       
    
-  }, []); */
+  }, []); 
   if(cafeteria) {
     return (
       <View style={{flex: 1}}>
@@ -56,92 +62,49 @@ export default function Listado({id, navigation}) {
             </View>
             <View
               style={styles.contenedorListadoProductos}>
-              <View>
-                <View
-                  style={styles.contenedorListadoCafe}>
-                  <View style={styles.contenedorTextoTituloListado}>
-                    <Text style={{fontSize: 20}}>CAFÉ</Text>
-                  </View>
-                  <View
-                    style={styles.contenedorCardListadoCafe}>
-                    {cafeteria.productos.cafe.datos.map(cafe => {
-                      return (
-                        <View
-                          style={styles.contenedorInfoCafe}>
-                          <Cafe
-                            id={cafe.id}
-                            imagen={cafe.imagen}
-                            nombre={cafe.nombre}
-                            puntaje={cafe.puntaje}
-                            precio={cafe.precio}
-                            navigation={navigation}
-                          />
-                        </View>
-                      );
-                    })}
-                  </View>
-                </View>
-              </View>
-  
+              {cafeteria.categorias.map(categoria => {
+                return (
               <View
                 style={styles.contenedorDelTituloDelListadoDeJugos}>
                 <View style={styles.contenedorTextoTituloListado}>
-                  <Text style={{fontSize: 20}}>JUGOS</Text>
+                  <Text style={{fontSize: 20}}>{categoria.nombre}</Text>
                 </View>
   
                 <View
                   style={styles.contenedorCardListadoCafe}>
-                  {cafeteria.productos.bebidas.datos.map(bebida => {
-                    return (
-                      <View
-                        style={styles.contenedorInfoCafe}>
-                        <Jugo
-                          id={bebida.id}
-                          nombre={bebida.nombre}
-                          precio={bebida.precio}
-                          puntaje={bebida.puntaje}
-                          imagen={bebida.imagen}
-                          navigation={navigation}
-                        />
-                      </View>
-                    );
-                  })}
-                </View>
-              </View>
-              <View
-                style={styles.contenedorDelTituloDelListadoDeJugos}>
-                <View style={styles.contenedorTextoTituloListado}>
-                  <Text style={{fontSize: 20}}>DULCES</Text>
-                </View>
-  
-                <View
-                  style={styles.contenedorCardListadoCafe}>
-                  {cafeteria.productos.comestibles.datos.map(comida => {
+                  {categoria.consumibles.map(consumible => {
                     return (
                       <View
                         style={styles.contenedorInfoCafe}>
                         <Dulce
-                          id={comida.id}
-                          nombre={comida.nombre}
-                          precio={comida.precio}
-                          imagen={comida.imagen}
-                          puntaje={comida.puntaje}
-                          navigation={navigation}
+                          id={consumible.id}
+                          nombre={consumible.nombre}
+                          precio={consumible.precio}
+                          imagen={consumible.imagen}
+                          puntaje={consumible.puntaje}
+                          navigation={props.navigation}
                         />
                       </View>
                     );
                   })}
                 </View>
               </View>
+              )
+              })} 
+
+
             </View>
           </View>
         </ScrollView>
   
         <View style={styles.contenedorMenuUsuario}>
-          <MenuUsuario navigation={navigation} />
+          <MenuUsuario navigation={props.navigation} />
         </View>
       </View>
     );
+  }
+  else {
+    return <></>
   }
   
 }

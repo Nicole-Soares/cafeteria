@@ -13,7 +13,6 @@ export default function Cafeteria({
   imagen,
   navigation,
 }) {
-  
   return (
     <TouchableOpacity
       style={{width: 400, marginTop: 15}}

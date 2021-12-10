@@ -24,7 +24,7 @@ export default function InfoCafe({id, navigation}) {
 
   const [favoritoOn, setFavoritoOn] = useState(false);
 
-  console.log(id);
+ 
   /*useEffect(() => {
     
     async function DataCafe(){
@@ -72,8 +72,7 @@ export default function InfoCafe({id, navigation}) {
     } else {
       pedidos.push({infoCafe, cantidad, selecciones});
       setPedidos(pedidos);
-     
-      navigation.navigate('Listado', {});
+     navigation.navigate('Listado', {});
     }
   };
 
@@ -93,7 +92,7 @@ export default function InfoCafe({id, navigation}) {
               top: -220,
             }}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('LocalScreen')}>
+              onPress={() => navigation.navigate('LocalScreen', {id: id})}>
               <Icon name="arrow-left" color="white" size={20} />
             </TouchableOpacity>
           </View>

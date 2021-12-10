@@ -10,11 +10,11 @@ const customDataCafeteria = require('../../cafeteria.json');
 
 export default function AppProvider({children}) {
   const [listadoCafeteriasOriginal, setlistadoCafeteriasOriginal] =
-    useState(customData);
-  const [locales, setLocales] = useState(customData);
+    useState([]);
+  const [locales, setLocales] = useState([]);
   const [infoCafe, setInfoCafe] = useState(customDataProducto);
   const [listadoOriginalProductos, setListadoOriginalProductos] = useState(customDataProducto)
-  const [cafeteria, setCafeteria] = useState(customDataCafeteria);
+  const [cafeteria, setCafeteria] = useState(null);
   const [seleccionado, setSeleccionado] = useState(false);
   const [pedidos, setPedidos] = useState([]);
   const [idCafeteria, setIdCafeteria] = useState({});

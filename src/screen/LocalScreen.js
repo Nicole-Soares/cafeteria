@@ -5,13 +5,10 @@ import MenuUsuario from '../componentes/MenuUsuario';
 
 import Listado from '../componentes/Listado';
 
-export default function LocalScreen({navigation, id}) {
-
-
+export default function LocalScreen(props) {
   return (
     <View style={{height: '100%', width: '100%'}}>
-      <Listado navigation={navigation} id={id} />
-   
+      <Listado navigation={props.navigation} id={props.route.params.id} />
     </View>
   );
 }
