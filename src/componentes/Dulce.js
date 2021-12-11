@@ -4,11 +4,15 @@ import { ScrollView } from "react-native-gesture-handler";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { styles } from "../theme/Style";
 
-export default function Dulce({imagen, nombre, precio, puntaje, navigation, id}){
+export default function Dulce({imagen, nombre, precio, puntaje, navigation, id, idCafeteria}){
+
+
+
+
    return(
       
     <View style={styles.contenedorDulce}>
-      <TouchableOpacity style={styles.botonDulce} onPress={()=>navigation.navigate("InfoCafe", {id})}>
+      <TouchableOpacity style={styles.botonDulce} onPress={()=>navigation.navigate("InfoCafe", {id:idCafeteria})}>
   <View >
      
               <Image

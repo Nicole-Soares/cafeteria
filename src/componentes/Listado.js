@@ -12,40 +12,42 @@ import {styles} from '../theme/Style';
 const customDataCafeteria = require('../../cafeteria.json');
 
 export default function Listado(props) {
+  const {
+    cafeteria,
+    listadoCafeteriasOriginal,
+    setLocal,
+    setCafeteria,
+    idCafeteria,
+    setIdCafeteria,
+  } = useContext(AppContext);
+
+  const [id, setId] = useState(null);
  
-  const {cafeteria, listadoCafeteriasOriginal, setLocal, setCafeteria, idCafeteria, setIdCafeteria} =
-    useContext(AppContext);
-
-
-  
   useEffect(() => {
-    
-     async function obtenerCafeteria(){
-       
-       try {
-          console.log(props)
-          let peticion = await fetch(`http://vps-2290673-x.dattaweb.com/api/cafeterias/${props.id}/`);
-          let res = await peticion.json();
-          setCafeteria(res);
-          console.log(res)
-          
-        } catch (error) {
-          console.error(error);
-        }
-      
-     }
-     obtenerCafeteria();
-       
-   
-  }, []); 
-  if(cafeteria) {
+    setId()
+    async function obtenerCafeteria() {
+      try {
+        let idParam = props.id || props.route.params.id;
+        setId(idParam)
+        let peticion = await fetch(
+          `http://vps-2290673-x.dattaweb.com/api/cafeterias/${idParam}/`,
+        );
+        let res = await peticion.json();
+        setCafeteria(res);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    obtenerCafeteria();
+  }, []);
+
+ 
+  if (cafeteria) {
     return (
       <View style={{flex: 1}}>
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
-          <View
-            style={styles.contenedorListado}>
-            <View
-              style={styles.contenedorNavbarDelListado}>
+          <View style={styles.contenedorListado}>
+            <View style={styles.contenedorNavbarDelListado}>
               <Navbar />
             </View>
             <View>
@@ -60,51 +62,44 @@ export default function Listado(props) {
                 circleLoop={true}
               />
             </View>
-            <View
-              style={styles.contenedorListadoProductos}>
+            <View style={styles.contenedorListadoProductos}>
               {cafeteria.categorias.map(categoria => {
                 return (
-              <View
-                style={styles.contenedorDelTituloDelListadoDeJugos}>
-                <View style={styles.contenedorTextoTituloListado}>
-                  <Text style={{fontSize: 20}}>{categoria.nombre}</Text>
-                </View>
-  
-                <View
-                  style={styles.contenedorCardListadoCafe}>
-                  {categoria.consumibles.map(consumible => {
-                    return (
-                      <View
-                        style={styles.contenedorInfoCafe}>
-                        <Dulce
-                          id={consumible.id}
-                          nombre={consumible.nombre}
-                          precio={consumible.precio}
-                          imagen={consumible.imagen}
-                          puntaje={consumible.puntaje}
-                          navigation={props.navigation}
-                        />
-                      </View>
-                    );
-                  })}
-                </View>
-              </View>
-              )
-              })} 
+                  <View style={styles.contenedorDelTituloDelListadoDeJugos}>
+                    <View style={styles.contenedorTextoTituloListado}>
+                      <Text style={{fontSize: 20}}>{categoria.nombre}</Text>
+                    </View>
 
-
+                    <View style={styles.contenedorCardListadoCafe}>
+                      {categoria.consumibles.map(consumible => {
+                        return (
+                          <View style={styles.contenedorInfoCafe}>
+                            <Dulce
+                              id={consumible.id}
+                              idCafeteria={id}
+                              nombre={consumible.nombre}
+                              precio={consumible.precio}
+                              imagen={consumible.imagen}
+                              puntaje={consumible.puntaje}
+                              navigation={props.navigation}
+                            />
+                          </View>
+                        );
+                      })}
+                    </View>
+                  </View>
+                );
+              })}
             </View>
           </View>
         </ScrollView>
-  
+
         <View style={styles.contenedorMenuUsuario}>
           <MenuUsuario navigation={props.navigation} />
         </View>
       </View>
     );
+  } else {
+    return <></>;
   }
-  else {
-    return <></>
-  }
-  
 }

@@ -16,7 +16,7 @@ import ProductoSelecciones from '../componentes/ProductoSelecciones';
 
 // componente que muestra cuando va a realizar el pedido
 
-export default function InfoCafe({id, navigation}) {
+export default function InfoCafe(props) {
   const [cantidad, setCantidad] = useState(1);
   const {infoCafe, setPedidos, pedidos} = useContext(AppContext);
   const [ordenItem, setOrdenItem] = useState([]);
@@ -24,7 +24,9 @@ export default function InfoCafe({id, navigation}) {
 
   const [favoritoOn, setFavoritoOn] = useState(false);
 
- 
+
+  console.log(props)
+
   /*useEffect(() => {
     
     async function DataCafe(){
@@ -72,7 +74,7 @@ export default function InfoCafe({id, navigation}) {
     } else {
       pedidos.push({infoCafe, cantidad, selecciones});
       setPedidos(pedidos);
-     navigation.navigate('Listado', {});
+      props.navigation.navigate('Listado', {id: props.route.params.id});
     }
   };
 
@@ -92,7 +94,7 @@ export default function InfoCafe({id, navigation}) {
               top: -220,
             }}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('LocalScreen', {id: id})}>
+              onPress={() => props.navigation.navigate('LocalScreen', {id: props.route.params.id})}>
               <Icon name="arrow-left" color="white" size={20} />
             </TouchableOpacity>
           </View>

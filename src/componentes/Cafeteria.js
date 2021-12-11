@@ -13,10 +13,13 @@ export default function Cafeteria({
   imagen,
   navigation,
 }) {
+
+
+ 
   return (
     <TouchableOpacity
       style={{width: 400, marginTop: 15}}
-      onPress={() => navigation.navigate('LocalScreen', {id})}>
+      onPress={() => navigation.navigate('LocalScreen', {id: id})}>
       <View
         style={styles.contenedorCafeteria}>
         <View>

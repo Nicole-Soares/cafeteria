@@ -11,7 +11,6 @@ export default function SeleccionHorario(props) {
   const {cafeteria} = useContext(AppContext);
 
   const horariosDisponibles = (inicio, fin, intervalo) => {
-   
     let fechaInicio = new Date();
     let fechaFin = new Date();
     fechaInicio.setHours(inicio.split(':')[0], inicio.split(':')[1]);

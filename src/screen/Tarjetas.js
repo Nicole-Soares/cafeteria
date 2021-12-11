@@ -10,7 +10,6 @@ export default function Tarjetas({navigation}) {
 
   const getPreferenceId = async (payer, ...items) => {
 
-    console.log(items)
     const response = await fetch(
       `https://api.mercadopago.com/checkout/preferences?access_token=TEST-7337691703929395-120613-092e05faf570fef41c0c2863589c535b-116975793`,
       {
