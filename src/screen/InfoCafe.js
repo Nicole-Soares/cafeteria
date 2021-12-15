@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {
   View,
   Text,
@@ -10,7 +10,6 @@ import {
 import {AppContext} from '../context/AppContext';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {styles} from '../theme/Style';
-import Dulce from '../componentes/Dulce';
 
 import ProductoSelecciones from '../componentes/ProductoSelecciones';
 
@@ -18,32 +17,29 @@ import ProductoSelecciones from '../componentes/ProductoSelecciones';
 
 export default function InfoCafe(props) {
   const [cantidad, setCantidad] = useState(1);
-  const {infoCafe, setPedidos, pedidos} = useContext(AppContext);
+  const {infoCafe, setInfoCafe, setPedidos, pedidos} = useContext(AppContext);
   const [ordenItem, setOrdenItem] = useState([]);
   const [selecciones, setSelecciones] = useState([]);
+  const {id, setId} = useContext(AppContext);
 
-  const [favoritoOn, setFavoritoOn] = useState(false);
+  useEffect(() => {
+    async function DataCafe() {
+      let idParam = props.idProducto || props.route.params.idProducto;
 
+      try {
+        let peticion = await fetch(
+          `http://vps-2290673-x.dattaweb.com/api/consumible/${idParam}/`,
+        );
 
-  console.log(props)
-
-  /*useEffect(() => {
-    
-    async function DataCafe(){
-        try {
-            let peticion = await fetch('api{id}')
-           
-            let res = await response.json()
-             setInfoCafe(res)
-        } catch (err) {
-            console.error(err)
-        }
+        let res = await peticion.json();
+        setInfoCafe(res);
+      } catch (err) {
+        console.error(err);
+      }
     }
 
-    DataCafe()
-    
-   
-}, []) */
+    DataCafe();
+  }, []);
 
   /*async function mandarData(){
     try {
@@ -78,6 +74,7 @@ export default function InfoCafe(props) {
     }
   };
 
+  if(infoCafe) {
   return (
     <ScrollView>
       <View style={styles.contenedorAgregarProducto}>
@@ -94,7 +91,11 @@ export default function InfoCafe(props) {
               top: -220,
             }}>
             <TouchableOpacity
-              onPress={() => props.navigation.navigate('LocalScreen', {id: props.route.params.id})}>
+              onPress={() =>
+                props.navigation.navigate('LocalScreen', {
+                  id: props.route.params.id,
+                })
+              }>
               <Icon name="arrow-left" color="white" size={20} />
             </TouchableOpacity>
           </View>
@@ -197,4 +198,8 @@ export default function InfoCafe(props) {
       </View>
     </ScrollView>
   );
+    
+} else {
+  return (<></>);
+}
 }

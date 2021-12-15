@@ -48,6 +48,8 @@ for(let inicio = apertura; inicio < cierre; inicio + intervalo){
      horarios.push(inicio)
  }*/
 
+
+
   return (
     <View>
       <View
@@ -76,13 +78,20 @@ for(let inicio = apertura; inicio < cierre; inicio + intervalo){
               onValueChange={(itemValue, itemIndex) =>
                 setHorarioSeleccionado(itemValue)
               }>
-              {horariosDisponibles(
-                cafeteria.horario.apertura,
-                cafeteria.horario.cierre,
-                cafeteria.horario.intervalo,
-              ).map(horario => {
-                return <Picker.Item label={horario} value={horario} />;
-              })}
+              { cafeteria.horario.map(horarios =>{
+                return(
+                  horariosDisponibles(
+                    horarios.apertura,
+                    horarios.cierre,
+                    horarios.intervalo,
+                  ).map(horario => {
+                    return <Picker.Item label={horario} value={horario} />;
+                  })
+                )
+              })
+              
+              
+             }
             </Picker>
           </View>
         ) : null}
@@ -91,8 +100,14 @@ for(let inicio = apertura; inicio < cierre; inicio + intervalo){
         style={styles.contenedorBotonPagar}>
         <TouchableOpacity
           style={styles.botonPagarSeleccionHorario} onPress={()=>props.navigation.navigate("Tarjetas")}>
-          <Text style={styles.textoPagarSeleccionHorario}>
-            Pagar
+          <Text style={{
+                  textAlign: 'center',
+                  fontSize: 13,
+                  letterSpacing: 3,
+                  color: 'white',
+                  padding: 5
+                }}>
+            PAGAR
           </Text>
         </TouchableOpacity>
       </View>

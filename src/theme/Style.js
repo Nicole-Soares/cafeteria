@@ -158,7 +158,8 @@ export const styles = StyleSheet.create({
     contenedorListadoProductos:{
         marginTop: 10,
         height: '100%',
-        width: '100%'
+        width: '100%',
+       alignItems:"center"
     },
     contenedorListadoCafe:{
         justifyContent: 'space-between',
@@ -169,7 +170,7 @@ export const styles = StyleSheet.create({
         width: '90%', marginBottom: 10
     },
     contenedorCardListadoCafe:{
-        width: '90%',
+        width: '100%',
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
@@ -188,7 +189,7 @@ export const styles = StyleSheet.create({
     contenedorInfoCafe:{
         justifyContent: 'space-between',
         width: '90%',
-        flexDirection: 'row',
+        
         alignItems: 'center',
         marginTop: 15,
         marginBottom: 15
@@ -206,14 +207,14 @@ export const styles = StyleSheet.create({
         flexDirection:"row", width:"100%",  justifyContent:"space-between"
     },
     contenedorDulce:{
-        justifyContent:"space-between", alignItems:"center", flexDirection:"row", width:"90%"
+        justifyContent:"space-between", alignItems:"center", flexDirection:"row", width:"100%"
     },
     botonDulce:{
         flexDirection:"row", width:"100%",  justifyContent:"space-between"
     },
     contenedorCafe:{
         
-        justifyContent:"space-between", alignItems:"center", flexDirection:"row", width:"90%"
+        justifyContent:"space-between", alignItems:"center",  width:"90%"
 
     },
     botonCafe:{
@@ -361,11 +362,11 @@ export const styles = StyleSheet.create({
         height: '20%'
     },
     botonPagarSeleccionHorario:{
-        backgroundColor: '#729C81',
-        width: 200,
-        height: 50,
-        justifyContent: 'center',
-        alignItems: 'center'
+        backgroundColor:"#729C81", 
+        height:50, 
+        width: 150,
+        justifyContent:"center", 
+        borderRadius:10
     },
     textoPagarSeleccionHorario:{
         color: 'white', fontSize: 25, letterSpacing: 1

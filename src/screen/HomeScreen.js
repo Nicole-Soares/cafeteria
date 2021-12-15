@@ -1,5 +1,5 @@
-import React, {useContext, useEffect} from 'react';
-import {View, ActivityIndicator} from 'react-native';
+import React, {useContext, useEffect, useState} from 'react';
+import {View, ActivityIndicator, Text} from 'react-native';
 import {AppContext} from '../context/AppContext';
 import Cafeteria from '../componentes/Cafeteria';
 import MenuUsuario from '../componentes/MenuUsuario';
@@ -10,6 +10,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 
 export default function HomeScreen({navigation}) {
   const {locales, setLocales,  setlistadoCafeteriasOriginal} = useContext(AppContext);
+  const  [error, setError] = useState(null)
 
   useEffect(() => {
     async function obtenerListadoCafeterias() {
@@ -20,12 +21,12 @@ export default function HomeScreen({navigation}) {
         let respuesta = await peticion.json();
         setlistadoCafeteriasOriginal(respuesta);
         setLocales(respuesta);
-      } catch (error) {
-        console.error(error);
+      } catch (er) {
+        console.error(er);
       }
     }
     obtenerListadoCafeterias();
-  }, []);
+  }, []); 
 
   return (
     <View style={styles.contenedorHomeScreen}>
@@ -50,7 +51,9 @@ export default function HomeScreen({navigation}) {
             );
           })
         ) : (
+         
           <ActivityIndicator size="large" color="pink" />
+         
         )}
       </ScrollView>
       <View style={styles.contenedorMenuUsuario}>

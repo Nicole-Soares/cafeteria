@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import {View, Text, Image, TouchableOpacity} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { AppContext } from "../context/AppContext";
 import { styles } from "../theme/Style";
 
-export default function Dulce({imagen, nombre, precio, puntaje, navigation, id, idCafeteria}){
+export default function Producto({imagen, nombre, precio, puntaje, navigation, id, idCafeteria}){
+
+const {cafeteriaListadoOriginal, setCafeteriaListadoOriginal} = useContext(AppContext);
 
 
+    
 
 
    return(
       
     <View style={styles.contenedorDulce}>
-      <TouchableOpacity style={styles.botonDulce} onPress={()=>navigation.navigate("InfoCafe", {id:idCafeteria})}>
+      <TouchableOpacity style={styles.botonDulce} onPress={()=>navigation.navigate("InfoCafe", {id:idCafeteria, idProducto:id})}>
   <View >
      
               <Image

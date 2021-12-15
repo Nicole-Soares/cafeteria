@@ -9,9 +9,10 @@ import {NavigationContainer} from '@react-navigation/native';
  * Este componente se encarga de mostrar todos los pedidos del "carrito"
  */
 export default function Orden(props) {
-  const {listadoOriginalProductos, pedidos} = useContext(AppContext);
+  const { pedidos, id } = useContext(AppContext);
 
-  
+ 
+  console.log(id);
   if (pedidos) {
     return (
       <View>
@@ -25,7 +26,7 @@ export default function Orden(props) {
           }}>
           <View style={{height: '100%', justifyContent: 'flex-start'}}>
             <TouchableOpacity
-              onPress={() => props.navigation.navigate('InfoCafe')}>
+              onPress={() => props.navigation.navigate('Listado', {id: id})}>
               <Icon name="arrow-left" color="white" size={20} />
             </TouchableOpacity>
           </View>
@@ -94,7 +95,15 @@ export default function Orden(props) {
         </View>
         <View style={{width:"100%", justifyContent:"center", alignItems:"center", marginTop:15}}>
           <TouchableOpacity style={{backgroundColor:"#729C81", height:50, justifyContent:"center", borderRadius:10}} onPress={()=>props.navigation.navigate("SeleccionHorario")}>
-            <Text style={{color:"white", fontSize:20, letterSpacing:1}}>Confirmar compra</Text>
+            
+          <Text
+                style={{
+                  textAlign: 'center',
+                  fontSize: 13,
+                  letterSpacing: 3,
+                  color: 'white',
+                  padding: 5
+                }}>CONFIRMAR</Text>
           </TouchableOpacity>
         </View>
       </View>

@@ -12,13 +12,18 @@ export default function AppProvider({children}) {
   const [listadoCafeteriasOriginal, setlistadoCafeteriasOriginal] =
     useState([]);
   const [locales, setLocales] = useState([]);
-  const [infoCafe, setInfoCafe] = useState(customDataProducto);
-  const [listadoOriginalProductos, setListadoOriginalProductos] = useState(customDataProducto)
+  const [infoCafe, setInfoCafe] = useState(null);
+  const [listadoOriginalProductos, setListadoOriginalProductos] = useState([])
+  const [cafeteriaListadoOriginal, setCafeteriaListadoOriginal] = useState(null);
   const [cafeteria, setCafeteria] = useState(null);
   const [seleccionado, setSeleccionado] = useState(false);
   const [pedidos, setPedidos] = useState([]);
   const [idCafeteria, setIdCafeteria] = useState({});
- 
+  const [cafes, setCafes] = useState(false);
+  const [jugos, setJugos] = useState(false);
+  const [dulces, setDulces] = useState(false);
+  const [top, setTop] = useState(true);
+  const [id, setId] = useState(null);
  
 
   return (
@@ -34,7 +39,13 @@ export default function AppProvider({children}) {
         seleccionado, setSeleccionado,
         listadoOriginalProductos, setListadoOriginalProductos,
         pedidos, setPedidos,
-        idCafeteria, setIdCafeteria
+        idCafeteria, setIdCafeteria,
+        cafes, setCafes,
+        jugos, setJugos,
+        dulces, setDulces,
+        top, setTop,
+        cafeteriaListadoOriginal, setCafeteriaListadoOriginal,
+        id, setId
        
       }}>
       {children}

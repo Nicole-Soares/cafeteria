@@ -4,7 +4,7 @@ import React from 'react';
 import LocalScreen from '../screen/LocalScreen';
 import SesionScreen from '../screen/SesionScreen';
 import RegistrarseScreen from '../screen/RegistrarseScreen';
-import Cafe from '../componentes/Cafe';
+
 import InfoCafe from '../screen/InfoCafe';
 import MapaLocales from '../screen/MapaLocales';
 import InformacionCafeteria from '../screen/InformacionCafeteria';
@@ -12,6 +12,7 @@ import Listado from '../componentes/Listado';
 import Orden from '../screen/Orden';
 import SeleccionHorario from '../screen/SeleccionHorario';
 import Tarjetas from '../screen/Tarjetas';
+import CategoriaCafe from '../componentes/CategoriaCafe';
 
 const Stack = createStackNavigator();
 
@@ -26,7 +27,7 @@ export default function StackNavigation() {
       <Stack.Screen name="LocalScreen" component={LocalScreen} />
       <Stack.Screen name="SesionScreen" component={SesionScreen} />
       <Stack.Screen name="RegistrarseScreen" component={RegistrarseScreen} />
-      <Stack.Screen name="Cafe" component={Cafe} />
+      <Stack.Screen name="CategoriaCafe" component={CategoriaCafe} />
       <Stack.Screen name="InfoCafe" component={InfoCafe} />
       <Stack.Screen name="MapaLocales" component={MapaLocales} />
       <Stack.Screen name="InformacionCafeteria" component={InformacionCafeteria} />

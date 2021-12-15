@@ -6,7 +6,7 @@ import MercadoPagoCheckout from '@blackbox-vision/react-native-mercadopago-px';
 
 export default function Tarjetas({navigation}) {
   const [paymentResult, setPaymentResult] = useState('En espera');
-  const {pedidos} = useContext(AppContext);
+  const {pedidos, id} = useContext(AppContext);
 
   const getPreferenceId = async (payer, ...items) => {
 
@@ -71,7 +71,7 @@ export default function Tarjetas({navigation}) {
           alignItems: 'center',
         }}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Listado')}
+          onPress={() => navigation.navigate('Listado', {id:id})}
           style={{flexDirection: 'row'}}>
           <Icon
             name="arrow-left"
@@ -89,13 +89,14 @@ export default function Tarjetas({navigation}) {
         <TouchableOpacity
           onPress={startCheckout}
           style={{
-            backgroundColor: '#729C81',
-            height: '10%',
-            justifyContent: 'center',
-            marginBottom: 10,
-          }}>
-          <Text style={{fontSize: 25, color: 'white'}}>
-            Acceder a MercadoPago
+            backgroundColor:"#729C81", 
+            height:50, 
+            width: 250,
+            justifyContent:"center", 
+            borderRadius:10
+        }}>
+          <Text style={{color: 'white', fontSize: 15, letterSpacing: 1, textAlign: "center"}}>
+            PAGAR CON MERCADOPAGO
           </Text>
         </TouchableOpacity>
         <Text style={{fontSize: 20}}>

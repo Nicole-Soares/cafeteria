@@ -2,29 +2,32 @@ import React, {useContext, useState, useEffect} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import Navbar from './Navbar';
 import {SliderBox} from 'react-native-image-slider-box';
-import Cafe from './Cafe';
-import Jugo from './Jugo';
-import Dulce from './Dulce';
+import CategoriaBebidas from './CategoriaBebidas';
+import CategoriaCafe from './CategoriaCafe';
+import CategoriaConsumibles from './CategoriaConsumibles';
+import CategoriaTop from './CategoriaTop';
 import {AppContext} from '../context/AppContext';
 import MenuUsuario from './MenuUsuario';
 import {styles} from '../theme/Style';
+
 
 const customDataCafeteria = require('../../cafeteria.json');
 
 export default function Listado(props) {
   const {
     cafeteria,
-    listadoCafeteriasOriginal,
+    setCafeteriaListadoOriginal,
     setLocal,
     setCafeteria,
     idCafeteria,
     setIdCafeteria,
+    cafes, jugos, dulces, top
   } = useContext(AppContext);
 
-  const [id, setId] = useState(null);
+  const {id, setId} = useContext(AppContext);
  
   useEffect(() => {
-    setId()
+  
     async function obtenerCafeteria() {
       try {
         let idParam = props.id || props.route.params.id;
@@ -34,6 +37,7 @@ export default function Listado(props) {
         );
         let res = await peticion.json();
         setCafeteria(res);
+        setCafeteriaListadoOriginal(res);
       } catch (error) {
         console.error(error);
       }
@@ -63,33 +67,10 @@ export default function Listado(props) {
               />
             </View>
             <View style={styles.contenedorListadoProductos}>
-              {cafeteria.categorias.map(categoria => {
-                return (
-                  <View style={styles.contenedorDelTituloDelListadoDeJugos}>
-                    <View style={styles.contenedorTextoTituloListado}>
-                      <Text style={{fontSize: 20}}>{categoria.nombre}</Text>
-                    </View>
-
-                    <View style={styles.contenedorCardListadoCafe}>
-                      {categoria.consumibles.map(consumible => {
-                        return (
-                          <View style={styles.contenedorInfoCafe}>
-                            <Dulce
-                              id={consumible.id}
-                              idCafeteria={id}
-                              nombre={consumible.nombre}
-                              precio={consumible.precio}
-                              imagen={consumible.imagen}
-                              puntaje={consumible.puntaje}
-                              navigation={props.navigation}
-                            />
-                          </View>
-                        );
-                      })}
-                    </View>
-                  </View>
-                );
-              })}
+           {cafes ? <CategoriaCafe navigation={props.navigation} nombre="Café"/> : <Text style={{display:"none"}}></Text>}
+           {jugos ? <CategoriaBebidas navigation={props.navigation} nombre="Adicionales"/> : <Text style={{display:"none"}}></Text> }
+           {dulces ? <CategoriaConsumibles navigation={props.navigation} nombre="Otros"/> : <Text style={{display:"none"}}></Text> }
+           {top ? <CategoriaTop navigation={props.navigation} nombre="top"/> : <Text style={{display:"none"}}></Text> }
             </View>
           </View>
         </ScrollView>

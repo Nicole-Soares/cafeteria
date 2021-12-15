@@ -6,16 +6,20 @@ import {styles} from '../theme/Style';
 import CantidadPedidos from './CantidadPedidos';
 
 export default function MenuUsuario({navigation}) {
-  const {pedidos, setPedidos} = useContext(AppContext);
+  const {pedidos, setPedidos, id} = useContext(AppContext);
+
+
+
+  /*<TouchableOpacity onPress={() => navigation.navigate('MapaLocales')}>
+  <Icon name="map" color="#D8DCD9" size={30} />
+</TouchableOpacity>*/
 
   return (
     <View style={styles.contenedorMenuUsuario}>
       <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
         <Icon name="home" color="#D8DCD9" size={30} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('MapaLocales')}>
-        <Icon name="map" color="#D8DCD9" size={30} />
-      </TouchableOpacity>
+     
 
       <View>
         <View style={{}}>
@@ -26,7 +30,7 @@ export default function MenuUsuario({navigation}) {
           )}
         </View>
         <View style={pedidos.length > 0 ? styles.estiloBotonCarritoConProductos : styles.estiloBotonCarritoSinProductos}>
-          <TouchableOpacity onPress={() => navigation.navigate('Orden')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Orden', {id:id})}>
             <Icon name="shopping-basket" color="#D8DCD9" size={30} />
           </TouchableOpacity>
         </View>
