@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "nombre": "cool mango",
+        "descripcion": "una descripcion cualquiera",
+        "cantidad": 2,
+        "total": 175
+    },
+    {
+        "id": 2,
+        "nombre": "Café",
+        "descripcion": "una descripcion cualquiera",
+        "cantidad": 1,
+        "total": 130
+    }
+]

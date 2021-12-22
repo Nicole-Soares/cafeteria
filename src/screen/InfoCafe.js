@@ -17,7 +17,7 @@ import ProductoSelecciones from '../componentes/ProductoSelecciones';
 
 export default function InfoCafe(props) {
   const [cantidad, setCantidad] = useState(1);
-  const {infoCafe, setInfoCafe, setPedidos, pedidos} = useContext(AppContext);
+  const {infoCafe, setInfoCafe, setPedidos, pedidos, listadoOriginalPedidos, setListadoOriginalPedidos} = useContext(AppContext);
   const [ordenItem, setOrdenItem] = useState([]);
   const [selecciones, setSelecciones] = useState([]);
   const {id, setId} = useContext(AppContext);
@@ -69,6 +69,8 @@ export default function InfoCafe(props) {
       Alert.alert('Debes seleccionar todas las caracteristicas de tu producto');
     } else {
       pedidos.push({infoCafe, cantidad, selecciones});
+      listadoOriginalPedidos.push({infoCafe, cantidad, selecciones})
+      setListadoOriginalPedidos(listadoOriginalPedidos)
       setPedidos(pedidos);
       props.navigation.navigate('Listado', {id: props.route.params.id});
     }
@@ -88,7 +90,7 @@ export default function InfoCafe(props) {
             style={{
               elevation: 100,
               zIndex: 10,
-              top: -220,
+              top: -300,
             }}>
             <TouchableOpacity
               onPress={() =>
@@ -96,7 +98,7 @@ export default function InfoCafe(props) {
                   id: props.route.params.id,
                 })
               }>
-              <Icon name="arrow-left" color="white" size={20} />
+              <Icon name="arrow-left" color="#729C81" size={20} />
             </TouchableOpacity>
           </View>
         </View>

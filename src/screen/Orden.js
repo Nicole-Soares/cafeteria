@@ -4,16 +4,58 @@ import {AppContext} from '../context/AppContext';
 import {styles} from '../theme/Style';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {NavigationContainer} from '@react-navigation/native';
+import MenuUsuario from '../componentes/MenuUsuario';
 /**
  * Este componente se encarga de mostrar todos los pedidos del "carrito"
  */
 export default function Orden(props) {
-  const { pedidos, id } = useContext(AppContext);
+  const {
+    pedidos,
+    id,
+    setPedidos,
+    listadoOriginalPedidos,
+    setListadoOriginalPedidos,
+  } = useContext(AppContext);
 
- 
-  console.log(id);
-  if (pedidos) {
+  /*useEffect(() => {
+    async function mandarDatosDeOrden() {
+      try {
+        let peticion = await fetch('lalala', {
+          method: 'POST',
+          body: JSON.stringify({
+            idUsuario: 1,
+            pedidos,
+          }),
+        });
+        let respuesta = peticion.json();
+      } catch (err) {
+        console.error(error);
+      }
+    }
+    mandarDatosDeOrden(pedidos);
+  }, []); */
+
+  const borrarCarrito = () => {
+    setPedidos([]);
+  };
+
+  const borrarPedido = pedido => {
+    let pedidosTemp = pedidos.filter(pedidoActual => pedidoActual !== pedido );
+  
+    setPedidos(pedidosTemp);
+  };
+
+  useEffect(() => {
+    const actualizarData = () =>{
+        setPedidos(pedidos)
+    }
+    
+    actualizarData();
+  }, [pedidos]);
+
+
+
+  if (pedidos.length > 0) {
     return (
       <View>
         <View
@@ -36,7 +78,12 @@ export default function Orden(props) {
             </Text>
           </View>
         </View>
-        <View style={{alignItems: 'center', justifyContent: 'center'}}>
+        <View
+          style={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'row',
+          }}>
           <View style={styles.cardDelPedido}>
             <View
               style={{
@@ -55,7 +102,7 @@ export default function Orden(props) {
                 alignSelf: 'center',
               }}></View>
 
-            {pedidos.map(pedido => {
+            {pedidos.map((pedido, index) => {
               return (
                 <View
                   style={{
@@ -64,9 +111,8 @@ export default function Orden(props) {
                     marginTop: 10,
                     alignItems: 'center',
                     width: '90%',
-                   
-                  }}>
-                  <View style={{marginBottom:10}}>
+                  }} key={index}>
+                  <View style={{marginBottom: 10}}>
                     <Image
                       source={{uri: pedido.infoCafe.imagen}}
                       style={{height: 80, width: 80}}
@@ -82,35 +128,96 @@ export default function Orden(props) {
                       </Text>
                     </View>
                     <View style={{width: '100%'}}>
-                    
                       <Text style={{fontSize: 15, letterSpacing: 1}}>
                         {pedido.selecciones.join(', ')}
                       </Text>
                     </View>
+                  </View>
+                  <View style={{marginBottom: 20}}>
+                    <TouchableOpacity onPress={() => borrarPedido(pedido)}>
+                      <Icon name="times" color="grey" size={20} />
+                    </TouchableOpacity>
                   </View>
                 </View>
               );
             })}
           </View>
         </View>
-        <View style={{width:"100%", justifyContent:"center", alignItems:"center", marginTop:15}}>
-          <TouchableOpacity style={{backgroundColor:"#729C81", height:50, justifyContent:"center", borderRadius:10}} onPress={()=>props.navigation.navigate("SeleccionHorario")}>
-            
-          <Text
+        <View
+          style={{
+            width: '100%',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            marginTop: 15,
+            flexDirection: 'row',
+          }}>
+          <TouchableOpacity
+            style={{
+              backgroundColor: '#729C81',
+              height: 50,
+              justifyContent: 'center',
+              borderRadius: 10,
+            }}
+            onPress={() => props.navigation.navigate('SeleccionHorario')}>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontSize: 13,
+                letterSpacing: 3,
+                color: 'white',
+                padding: 5,
+              }}>
+              CONFIRMAR
+            </Text>
+          </TouchableOpacity>
+          <View>
+            <TouchableOpacity
+              style={{
+                backgroundColor: '#729C81',
+                height: 50,
+                justifyContent: 'center',
+                borderRadius: 10,
+              }}
+              onPress={borrarCarrito}>
+              <Text
                 style={{
                   textAlign: 'center',
                   fontSize: 13,
                   letterSpacing: 3,
                   color: 'white',
-                  padding: 5
-                }}>CONFIRMAR</Text>
-          </TouchableOpacity>
+                  padding: 5,
+                }}>
+                BORRAR CARRITO
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity
+              style={{
+                backgroundColor: '#729C81',
+                height: 50,
+                justifyContent: 'center',
+                borderRadius: 10,
+              }}
+              onPress={()=>props.navigation.navigate("Listado", {id: id})}>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  fontSize: 13,
+                  letterSpacing: 3,
+                  color: 'white',
+                  padding: 5,
+                }}>
+                SEGUIR COMPRANDO
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     );
   } else {
     return (
-      <View>
+      <View style={{flex: 1}}>
         <View
           style={{
             backgroundColor: '#729C81',
@@ -122,8 +229,13 @@ export default function Orden(props) {
             TU ORDEN
           </Text>
         </View>
-        <View>
-          <Text>No hay orden disponible</Text>
+        <View style={{alignItems: 'center', marginTop: 20}}>
+          <Text style={{fontSize: 20, letterSpacing: 2, fontWeight: 'bold'}}>
+            El carrito esta vacio
+          </Text>
+        </View>
+        <View style={{position: 'absolute', bottom: 0, right: 0, left: 0}}>
+          <MenuUsuario navigation={props.navigation} />
         </View>
       </View>
     );

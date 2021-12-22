@@ -9,7 +9,6 @@ export default function Tarjetas({navigation}) {
   const {pedidos, id} = useContext(AppContext);
 
   const getPreferenceId = async (payer, ...items) => {
-
     const response = await fetch(
       `https://api.mercadopago.com/checkout/preferences?access_token=TEST-7337691703929395-120613-092e05faf570fef41c0c2863589c535b-116975793`,
       {
@@ -33,22 +32,21 @@ export default function Tarjetas({navigation}) {
     let precio = 0;
     let descripcion = '';
     pedidos.map(pedido => {
-      
       precio += parseInt(pedido.infoCafe.precio) * pedido.cantidad;
       descripcion += ' | ' + pedido.infoCafe.nombre;
     });
 
     let pedido = {
-                    title: 'Cafeteria Carlitos',
-                    description: descripcion,
-                    quantity: 1,
-                    currency_id: 'ARS',
-                    unit_price: parseInt(precio),
-                  }
+      title: 'Cafeteria Carlitos',
+      description: descripcion,
+      quantity: 1,
+      currency_id: 'ARS',
+      unit_price: parseInt(precio),
+    };
 
     try {
       const preferenceId = await getPreferenceId('payer@email.com', pedido);
-      
+
       const payment = await MercadoPagoCheckout.createPayment({
         publicKey: 'TEST-834e4286-0ac9-45cb-be99-50bda7dfb214',
         preferenceId,
@@ -71,7 +69,7 @@ export default function Tarjetas({navigation}) {
           alignItems: 'center',
         }}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Listado', {id:id})}
+          onPress={() => navigation.navigate('Listado', {id: id})}
           style={{flexDirection: 'row'}}>
           <Icon
             name="arrow-left"
@@ -89,13 +87,19 @@ export default function Tarjetas({navigation}) {
         <TouchableOpacity
           onPress={startCheckout}
           style={{
-            backgroundColor:"#729C81", 
-            height:50, 
+            backgroundColor: '#18A9DF',
+            height: 50,
             width: 250,
-            justifyContent:"center", 
-            borderRadius:10
-        }}>
-          <Text style={{color: 'white', fontSize: 15, letterSpacing: 1, textAlign: "center"}}>
+            justifyContent: 'center',
+            borderRadius: 10,
+          }}>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: 15,
+              letterSpacing: 1,
+              textAlign: 'center',
+            }}>
             PAGAR CON MERCADOPAGO
           </Text>
         </TouchableOpacity>
