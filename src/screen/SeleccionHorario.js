@@ -12,7 +12,7 @@ export default function SeleccionHorario(props) {
   const horariosDisponibles = (inicio, fin, intervalo) => {
     let fechaInicio = new Date();
     let fechaFin = new Date();
-    let hoy = new Date();
+    let hoy = new Date()
     fechaInicio.setHours(inicio.split(':')[0], inicio.split(':')[1]);
     fechaFin.setHours(fin.split(':')[0], fin.split(':')[1]);
     

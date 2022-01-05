@@ -3,7 +3,7 @@ import {View, Text, Image, Touchable} from 'react-native';
 import {AppContext} from '../context/AppContext';
 import {styles} from '../theme/Style';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import MenuUsuario from '../componentes/MenuUsuario';
 /**
  * Este componente se encarga de mostrar todos los pedidos del "carrito"
@@ -58,6 +58,7 @@ export default function Orden(props) {
   if (pedidos.length > 0) {
     return (
       <View>
+        <ScrollView>
         <View
           style={{
             backgroundColor: '#729C81',
@@ -146,10 +147,10 @@ export default function Orden(props) {
         <View
           style={{
             width: '100%',
-            justifyContent: 'space-around',
+            justifyContent: 'space-between',
             alignItems: 'center',
             marginTop: 15,
-            flexDirection: 'row',
+            height:200
           }}>
           <TouchableOpacity
             style={{
@@ -213,6 +214,7 @@ export default function Orden(props) {
             </TouchableOpacity>
           </View>
         </View>
+        </ScrollView>
       </View>
     );
   } else {

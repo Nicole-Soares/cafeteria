@@ -10,7 +10,6 @@ import {AppContext} from '../context/AppContext';
 import MenuUsuario from './MenuUsuario';
 import {styles} from '../theme/Style';
 
-
 const customDataCafeteria = require('../../cafeteria.json');
 
 export default function Listado(props) {
@@ -21,17 +20,19 @@ export default function Listado(props) {
     setCafeteria,
     idCafeteria,
     setIdCafeteria,
-    cafes, jugos, dulces, top
+    cafes,
+    jugos,
+    dulces,
+    top,
   } = useContext(AppContext);
 
   const {id, setId} = useContext(AppContext);
- 
+
   useEffect(() => {
-  
     async function obtenerCafeteria() {
       try {
         let idParam = props.id || props.route.params.id;
-        setId(idParam)
+        setId(idParam);
         let peticion = await fetch(
           `http://vps-2290673-x.dattaweb.com/api/cafeterias/${idParam}/`,
         );
@@ -45,7 +46,6 @@ export default function Listado(props) {
     obtenerCafeteria();
   }, []);
 
- 
   if (cafeteria) {
     return (
       <View style={{flex: 1}}>
@@ -67,10 +67,32 @@ export default function Listado(props) {
               />
             </View>
             <View style={styles.contenedorListadoProductos}>
-           {cafes ? <CategoriaCafe navigation={props.navigation} nombre="Café"/> : <Text style={{display:"none"}}></Text>}
-           {jugos ? <CategoriaBebidas navigation={props.navigation} nombre="Adicionales"/> : <Text style={{display:"none"}}></Text> }
-           {dulces ? <CategoriaConsumibles navigation={props.navigation} nombre="Otros"/> : <Text style={{display:"none"}}></Text> }
-           {top ? <CategoriaTop navigation={props.navigation} nombre="top"/> : <Text style={{display:"none"}}></Text> }
+              {cafes ? (
+                <CategoriaCafe navigation={props.navigation} nombre="Café" />
+              ) : (
+                <Text style={{display: 'none'}}></Text>
+              )}
+              {jugos ? (
+                <CategoriaBebidas
+                  navigation={props.navigation}
+                  nombre="Adicionales"
+                />
+              ) : (
+                <Text style={{display: 'none'}}></Text>
+              )}
+              {dulces ? (
+                <CategoriaConsumibles
+                  navigation={props.navigation}
+                  nombre="Otros"
+                />
+              ) : (
+                <Text style={{display: 'none'}}></Text>
+              )}
+              {top ? (
+                <CategoriaTop navigation={props.navigation} nombre="top" />
+              ) : (
+                <Text style={{display: 'none'}}></Text>
+              )}
             </View>
           </View>
         </ScrollView>
