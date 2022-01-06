@@ -150,34 +150,20 @@ export default function Orden(props) {
             justifyContent: 'space-between',
             alignItems: 'center',
             marginTop: 15,
+           
+            flexDirection:"row",
             height:200
           }}>
-          <TouchableOpacity
-            style={{
-              backgroundColor: '#729C81',
-              height: 50,
-              justifyContent: 'center',
-              borderRadius: 10,
-            }}
-            onPress={() => props.navigation.navigate('SeleccionHorario')}>
-            <Text
-              style={{
-                textAlign: 'center',
-                fontSize: 13,
-                letterSpacing: 3,
-                color: 'white',
-                padding: 5,
-              }}>
-              CONFIRMAR
-            </Text>
-          </TouchableOpacity>
+        
           <View>
             <TouchableOpacity
               style={{
                 backgroundColor: '#729C81',
                 height: 50,
+                width:120,
                 justifyContent: 'center',
                 borderRadius: 10,
+                marginLeft:10
               }}
               onPress={borrarCarrito}>
               <Text
@@ -197,8 +183,10 @@ export default function Orden(props) {
               style={{
                 backgroundColor: '#729C81',
                 height: 50,
+                width:120,
                 justifyContent: 'center',
                 borderRadius: 10,
+               
               }}
               onPress={()=>props.navigation.navigate("Listado", {id: id})}>
               <Text
@@ -212,7 +200,29 @@ export default function Orden(props) {
                 SEGUIR COMPRANDO
               </Text>
             </TouchableOpacity>
+            
           </View>
+          <TouchableOpacity
+            style={{
+              backgroundColor: '#729C81',
+              height: 50,
+              width:120,
+              justifyContent: 'center',
+              borderRadius: 10,
+              marginRight:10
+            }}
+            onPress={() => props.navigation.navigate('SeleccionHorario')}>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontSize: 13,
+                letterSpacing: 3,
+                color: 'white',
+                padding: 5,
+              }}>
+              CONFIRMAR
+            </Text>
+          </TouchableOpacity>
         </View>
         </ScrollView>
       </View>

@@ -9,17 +9,37 @@ export default function SeleccionHorario(props) {
   const [horarioSeleccionado, setHorarioSeleccionado] = useState(null);
   const {cafeteria} = useContext(AppContext);
 
+  const formatearHorario = horario => {
+    console.log(horario, "horario para formatear")
+    let result = horario.toTimeString().split(' ')[0].split(':');
+    result.pop();
+    return result.join(':') + 'hs';
+  };
+
   const horariosDisponibles = (inicio, fin, intervalo) => {
+    console.log(process.env.TZ);
     let fechaInicio = new Date();
     let fechaFin = new Date();
-    let hoy = new Date()
+    let hoy = new Date();
     fechaInicio.setHours(inicio.split(':')[0], inicio.split(':')[1]);
     fechaFin.setHours(fin.split(':')[0], fin.split(':')[1]);
-    
+   
+    let horarios = [];
+    if(fechaInicio > hoy ) {
+      horarios.push(formatearHorario(fechaInicio));
+    }
+    while (fechaInicio < fechaFin) {
+      fechaInicio.setMinutes(fechaInicio.getMinutes() + intervalo);
+      if(fechaInicio > hoy ) {
+        horarios.push(formatearHorario(fechaInicio));
+      }
+    }
+    return horarios;
+
     //let horarioInicio = fechaInicio.toTimeString().split(' ')[0].split(':')
     //let horarioFin = fechaFin.toTimeString().split(' ')[0].split(':')
 
-/*let horarios = [];
+    /*let horarios = [];
     for(i = hoy; i < fechaFin ; i + hoy.getMinutes() + intervalo){
      horarios.push(formatearHorario(i));
     
@@ -27,32 +47,8 @@ export default function SeleccionHorario(props) {
   
     return horarios; 
   }*/
-
-  let horarios = [];
-  let horarioActual = fechaInicio;
-  horarios.push(formatearHorario(hoy));
-  while (hoy < fechaFin) {
-    hoy.setMinutes(hoy.getMinutes() + intervalo);
-    horarios.push(formatearHorario(hoy));
-  }
-  return horarios;
-
-  }
-
-
-    
-     const formatearHorario = horario => {
-      let result = horario.toTimeString().split(' ')[0].split(':');
-      result.pop();
-      return result.join(':') + 'hs';
-    };
-
-
-
-  
-  
-
-  
+   
+  };
 
   /* let horarios = []
 
@@ -68,10 +64,8 @@ for(let inicio = apertura; inicio < cierre; inicio + intervalo){
      horarios.push(inicio)
  }*/
 
-
-
   return (
-    <View style={{ alignContent:"center"}}>
+    <View style={{alignContent: 'center'}}>
       <View style={styles.contenedorTituloSeleccionHorario}>
         <View
           style={{justifyContent: 'flex-start', width: '100%', height: '40%'}}>
@@ -83,29 +77,32 @@ for(let inicio = apertura; inicio < cierre; inicio + intervalo){
           Retirar pedido
         </Text>
       </View>
-   
+
       <View
         style={{justifyContent: 'center', alignItems: 'center', marginTop: 10}}>
         <Text style={{fontSize: 20, letterSpacing: 1, marginBottom: 10}}>
           Cafeteria
         </Text>
-        <View style={{ flexDirection:"row",
-        marginTop: 10,
-        width: '90%',
-    backgroundColor: 'white',
-        borderWidth: 2,
-        borderColor: '#E2E2E2',
-        shadowColor: '#000',
-        shadowOffset: {
-          width: 0,
-          height: 1,
-        },
-        shadowOpacity: 0.22,
-        shadowRadius: 2.22,
+        <View
+          style={{
+            flexDirection: 'row',
+            marginTop: 10,
+            width: '90%',
+            backgroundColor: 'white',
+            borderWidth: 2,
+            borderColor: '#E2E2E2',
+            shadowColor: '#000',
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowOpacity: 0.22,
+            shadowRadius: 2.22,
 
-        elevation: 3,
-        justifyContent:"space-around",
-        alignItems:"center"}}>
+            elevation: 3,
+            justifyContent: 'space-around',
+            alignItems: 'center',
+          }}>
           <View>
             <Image
               source={{uri: cafeteria.imagen}}
@@ -113,13 +110,17 @@ for(let inicio = apertura; inicio < cierre; inicio + intervalo){
             />
           </View>
           <View>
-            <Text style={{fontFamily: 'oleoScript-Regular', fontSize: 18}}>{cafeteria.nombre}</Text>
-            <Text style={{fontFamily: 'oleoScript-Regular', fontSize: 18}}>{cafeteria.descripcion}</Text>
+            <Text style={{fontFamily: 'oleoScript-Regular', fontSize: 18}}>
+              {cafeteria.nombre}
+            </Text>
+            <Text style={{fontFamily: 'oleoScript-Regular', fontSize: 18}}>
+              {cafeteria.descripcion}
+            </Text>
           </View>
         </View>
       </View>
       <View
-        style={{justifyContent: 'center',marginTop:30, alignItems: 'center'}}>
+        style={{justifyContent: 'center', marginTop: 30, alignItems: 'center'}}>
         <Text style={{fontSize: 20, letterSpacing: 1, marginBottom: 10}}>
           Selecciona horario para retirar tu orden
         </Text>
@@ -143,8 +144,7 @@ for(let inicio = apertura; inicio < cierre; inicio + intervalo){
             </Picker>
           </View>
         ) : null}
-        </View>
-     
+      </View>
 
       <View style={styles.contenedorBotonPagar}>
         <TouchableOpacity
@@ -162,7 +162,6 @@ for(let inicio = apertura; inicio < cierre; inicio + intervalo){
           </Text>
         </TouchableOpacity>
       </View>
-   
     </View>
   );
 }

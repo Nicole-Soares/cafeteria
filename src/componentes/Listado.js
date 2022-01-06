@@ -28,6 +28,9 @@ export default function Listado(props) {
 
   const {id, setId} = useContext(AppContext);
 
+
+
+
   useEffect(() => {
     async function obtenerCafeteria() {
       try {
