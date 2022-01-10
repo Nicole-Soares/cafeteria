@@ -20,7 +20,7 @@ export default function CategoriaTop(props) {
           return (
             <View style={styles.contenedorInfoCafe}>
               <Producto
-                id={consumible.consumible.id}
+                idProducto={consumible.consumible.id}
                 idCafeteria={id}
                 nombre={consumible.consumible.nombre}
                 precio={consumible.consumible.precio}

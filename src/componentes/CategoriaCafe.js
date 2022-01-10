@@ -9,6 +9,9 @@ export default function CategoriaCafe(props) {
   const {cafeteria} = useContext(AppContext);
   const {id} = useContext(AppContext);
 
+
+
+
   return (
     <View style={styles.contenedorCafe}>
       <View style={styles.contenedorTextoTituloListado}>
@@ -17,15 +20,13 @@ export default function CategoriaCafe(props) {
 
       {cafeteria.categorias.map(categoria => {
         if (categoria.nombre === props.nombre) {
-         
           return (
             <View style={styles.contenedorCardListadoCafe}>
               {categoria.consumibles.map(consumible => {
-                
                 return (
                   <View style={styles.contenedorInfoCafe}>
                     <Producto
-                      id={consumible.id}
+                      idProducto= {consumible.id}
                       idCafeteria={id}
                       nombre={consumible.nombre}
                       precio={consumible.precio}
@@ -40,7 +41,6 @@ export default function CategoriaCafe(props) {
           );
         }
       })}
-    
     </View>
   );
 }

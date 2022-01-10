@@ -8,7 +8,7 @@ import {styles} from '../theme/Style';
 export default function SesionScreen({navigation}) {
   const [userCorreo, setUserCorreo] = useState(null);
   const [userContraseña, setUserContraseña] = useState(null);
-  const {usuarioOn, setUsuarioOn, historial} = useContext(AppContext);
+  const {usuarioOn, setUsuarioOn, historial, setUsuario, usuario, setHistorial} = useContext(AppContext);
 
   /*useEffect(() => {
 
@@ -20,9 +20,14 @@ async function corroborarUsuario(){
       usuarioCorreo: userCorreo ,
      usuarioContraseña: userContraseña
     })
-    let respuesta = peticion.json()
-    setUsuario(respuesta);
-    setUsuarioOn(true);
+    .then(function(peticion) {
+   if(peticion.ok) {
+       setUsuarioOn(true);
+   } 
+
+})
+    
+    
   }
   catch(error){
     console.error(error)
@@ -32,6 +37,47 @@ async function corroborarUsuario(){
 corroborarUsuario()
   
 }, [])*/
+
+/*useEffect(()=>{
+  try{
+    let peticion = fetch("lala")
+    let respuesta = peticion.json()
+    setUsuario(respuesta);
+    
+  }
+  catch(error){
+    console.error(error)
+  }
+}, [])*/
+
+
+useEffect(() => {
+ 
+  const traerHistorialDelUsuario = async () =>{
+    try{
+      let peticion =  await fetch("http://vps-2290673-x.dattaweb.com/api/ordenes/1/")
+      let respuesta = await  peticion.json()
+      setHistorial(respuesta);
+     
+    }
+    catch(error){
+      console.error(error)
+    }
+  }
+
+  
+    traerHistorialDelUsuario()
+   
+
+}, [])
+
+
+
+console.log(historial)
+
+
+
+
 
   if (usuarioOn) {
     return (
@@ -70,27 +116,27 @@ corroborarUsuario()
 
                     elevation: 4,
                   }}>
-                     
+                   
                     <View style={{width:"40%"}}>
-                   <Image source={{uri:cafeteria.logo}} style={{height:100, width:"100%"}}/>
+                   <Image source={{uri:cafeteria.cafeteria.imagen}} style={{height:100, width:"100%"}}/>
                     </View>
                    
                   <View style={{width: '60%', marginLeft: 10}}>
                    
                       <Text
                         style={{fontSize: 15, fontFamily: 'EncodeSans-Bold'}}>
-                        {cafeteria.cafeteria}
+                        {cafeteria.cafeteria.nombre}
                       </Text>
                       <Text
                         style={{fontSize: 15, fontFamily: 'EncodeSans-Bold'}}>
-                        {cafeteria.fecha}
+                        {cafeteria.horario}
                       </Text>
                       <Text
                         style={{fontSize: 15, fontFamily: 'EncodeSans-Bold'}}>
                         {cafeteria.cantidad}
                       </Text>
                       <Text style={{fontSize: 15, color: 'gold'}}>
-                        $ {cafeteria.total}
+                        $ {cafeteria.monto_total}
                       </Text>
                   
                   </View>

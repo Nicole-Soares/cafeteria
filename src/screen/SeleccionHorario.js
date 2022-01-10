@@ -6,18 +6,17 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {styles} from '../theme/Style';
 
 export default function SeleccionHorario(props) {
-  const [horarioSeleccionado, setHorarioSeleccionado] = useState(null);
-  const {cafeteria} = useContext(AppContext);
+ const {cafeteria, horarioSeleccionado, setHorarioSeleccionado} = useContext(AppContext);
 
   const formatearHorario = horario => {
-    console.log(horario, "horario para formatear")
+   
     let result = horario.toTimeString().split(' ')[0].split(':');
     result.pop();
     return result.join(':') + 'hs';
   };
 
   const horariosDisponibles = (inicio, fin, intervalo) => {
-    console.log(process.env.TZ);
+ 
     let fechaInicio = new Date();
     let fechaFin = new Date();
     let hoy = new Date();

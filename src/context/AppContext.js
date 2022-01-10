@@ -29,8 +29,10 @@ export default function AppProvider({children}) {
   const [top, setTop] = useState(true);
   const [id, setId] = useState(null);
   const [usuarioOn, setUsuarioOn] = useState(false);
-  const [orden, setOrden] = useState(customDataOrden)
- const [historial, setHistorial] = useState(customDataHistorial)
+  const [orden, setOrden] = useState(customDataOrden);
+ const [historial, setHistorial] = useState([]);
+ const [horarioSeleccionado, setHorarioSeleccionado] = useState(null);
+ const [idSeleccion, serIdSeleccion] = useState([]);
  
   return (
     <AppContext.Provider
@@ -67,7 +69,9 @@ export default function AppProvider({children}) {
         setUsuarioOn,
         orden, setOrden,
         historial, setHistorial,
-        listadoOriginalPedidos, setListadoOriginalPedidos
+        listadoOriginalPedidos, setListadoOriginalPedidos,
+        horarioSeleccionado, setHorarioSeleccionado,
+        idSeleccion, serIdSeleccion
       }}>
       {children}
     </AppContext.Provider>

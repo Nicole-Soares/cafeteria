@@ -25,7 +25,7 @@ export default function CategoriaConsumibles(props) {
                 return (
                   <View style={styles.contenedorInfoCafe}>
                     <Producto
-                      id={consumible.id}
+                      idProducto={consumible.id}
                       idCafeteria={id}
                       nombre={consumible.nombre}
                       precio={consumible.precio}

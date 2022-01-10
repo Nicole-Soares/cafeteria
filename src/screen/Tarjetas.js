@@ -1,12 +1,18 @@
-import React, {useState, useContext} from 'react';
-import {View, Text, TouchableOpacity, Alert} from 'react-native';
+import React, {useState, useContext, useEffect} from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Alert,
+  ProgressBarAndroidComponent,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {AppContext} from '../context/AppContext';
 import MercadoPagoCheckout from '@blackbox-vision/react-native-mercadopago-px';
 
 export default function Tarjetas({navigation}) {
   const [paymentResult, setPaymentResult] = useState('En espera');
-  const {pedidos, id} = useContext(AppContext);
+  const {pedidos, id, userCorreo, horarioSeleccionado} = useContext(AppContext);
 
   const getPreferenceId = async (payer, ...items) => {
     const response = await fetch(
@@ -28,12 +34,21 @@ export default function Tarjetas({navigation}) {
   };
 
   const startCheckout = async () => {
-    listaNuevaPedidos = [];
     let precio = 0;
     let descripcion = '';
+    let cantidad = 0;
+    let variedades = [];
+    let idProducto = '';
+    let total = 0;
+    console.log(pedidos)
     pedidos.map(pedido => {
       precio += parseInt(pedido.infoCafe.precio) * pedido.cantidad;
+      cantidad += pedido.cantidad;
       descripcion += ' | ' + pedido.infoCafe.nombre;
+      variedades += pedido.selecciones;
+      idProducto += pedido.infoCafe.id;
+     console.log(idProducto, "he")
+      total += precio * pedidos.length;
     });
 
     let pedido = {
@@ -45,7 +60,8 @@ export default function Tarjetas({navigation}) {
     };
 
     try {
-      const preferenceId = await getPreferenceId('payer@email.com', pedido);
+      console.log('Entrando al TRY');
+      const preferenceId = await getPreferenceId('payment@gmail.com', pedido);
 
       const payment = await MercadoPagoCheckout.createPayment({
         publicKey: 'TEST-834e4286-0ac9-45cb-be99-50bda7dfb214',
@@ -53,9 +69,57 @@ export default function Tarjetas({navigation}) {
       });
 
       setPaymentResult(payment);
+
+      if (payment.status === 'approved') {
+        console.log('pete');
+        enviarOrdenConfirmada(
+          precio,
+          cantidad,
+          descripcion,
+          variedades,
+          idProducto,
+          total,
+        );
+      }
     } catch (err) {
       Alert.alert('Something went wrong', err.message);
     }
+
+   
+  };
+
+  const enviarOrdenConfirmada = async (
+    precio,
+    cantidad,
+    descripcion,
+    variedades,
+    idProducto,
+    total,
+  ) => {
+    const data = JSON.stringify({
+      cafeteriaId: 1,
+      total: total,
+      clienteId: 1,
+      estadoPago: 'PAGADO',
+      horario: horarioSeleccionado,
+      consumibles: [
+        {
+          id: idProducto,
+          cantidad: cantidad,
+          montoTotal: precio,
+          variedades: variedades,
+        },
+      ],
+    });
+
+    let res = await fetch('http://vps-2290673-x.dattaweb.com/api/orden/', {
+      method: 'POST',
+      body: data,
+      headers: {'Content-type': 'application/json; charset=UTF-8'},
+    });
+    console.log(res);
+    const respuesta = await res.json();
+    console.log(respuesta);
   };
 
   return (
@@ -104,8 +168,27 @@ export default function Tarjetas({navigation}) {
           </Text>
         </TouchableOpacity>
         <Text style={{fontSize: 20}}>
-          Estado de transacción: {JSON.stringify(paymentResult)}
+          Estado de transacción: {JSON.stringify(paymentResult.status)}
         </Text>
+        <TouchableOpacity
+          onPress={enviarOrdenConfirmada}
+          style={{
+            backgroundColor: '#18A9DF',
+            height: 50,
+            width: 250,
+            justifyContent: 'center',
+            borderRadius: 10,
+          }}>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: 15,
+              letterSpacing: 1,
+              textAlign: 'center',
+            }}>
+            mandar datos
+          </Text>
+        </TouchableOpacity>
       </View>
       <View
         style={{

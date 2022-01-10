@@ -5,18 +5,17 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { AppContext } from "../context/AppContext";
 import { styles } from "../theme/Style";
 
-export default function Producto({imagen, nombre, precio, puntaje, navigation, id, idCafeteria}){
+export default function Producto({imagen, nombre, precio, puntaje, navigation,  idCafeteria, idProducto}){
 
 const {cafeteriaListadoOriginal, setCafeteriaListadoOriginal} = useContext(AppContext);
 
-
     
-
+console.log(idProducto)
 
    return(
       
     <View style={styles.contenedorDulce}>
-      <TouchableOpacity style={styles.botonDulce} onPress={()=>navigation.navigate("InfoCafe", {id:idCafeteria, idProducto:id})}>
+      <TouchableOpacity style={styles.botonDulce} onPress={()=>navigation.navigate("InfoCafe", {id:idCafeteria, idProducto:idProducto})}>
   <View >
      
               <Image

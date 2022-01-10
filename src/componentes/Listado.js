@@ -10,7 +10,7 @@ import {AppContext} from '../context/AppContext';
 import MenuUsuario from './MenuUsuario';
 import {styles} from '../theme/Style';
 
-const customDataCafeteria = require('../../cafeteria.json');
+
 
 export default function Listado(props) {
   const {
