@@ -73,7 +73,7 @@ useEffect(() => {
 
 
 
-console.log(historial)
+console.log(historial, "historial")
 
 
 

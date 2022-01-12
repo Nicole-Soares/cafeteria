@@ -12,7 +12,7 @@ import MercadoPagoCheckout from '@blackbox-vision/react-native-mercadopago-px';
 
 export default function Tarjetas({navigation}) {
   const [paymentResult, setPaymentResult] = useState('En espera');
-  const {pedidos, id, userCorreo, horarioSeleccionado} = useContext(AppContext);
+  const {pedidos, id, userCorreo, horarioSeleccionado, setPedidos} = useContext(AppContext);
 
   const getPreferenceId = async (payer, ...items) => {
     const response = await fetch(
@@ -71,7 +71,7 @@ export default function Tarjetas({navigation}) {
       setPaymentResult(payment);
 
       if (payment.status === 'approved') {
-        console.log('pete');
+     
         enviarOrdenConfirmada(
           precio,
           cantidad,
@@ -80,6 +80,7 @@ export default function Tarjetas({navigation}) {
           idProducto,
           total,
         );
+    setPedidos([])
       }
     } catch (err) {
       Alert.alert('Something went wrong', err.message);
@@ -170,25 +171,7 @@ export default function Tarjetas({navigation}) {
         <Text style={{fontSize: 20}}>
           Estado de transacción: {JSON.stringify(paymentResult.status)}
         </Text>
-        <TouchableOpacity
-          onPress={enviarOrdenConfirmada}
-          style={{
-            backgroundColor: '#18A9DF',
-            height: 50,
-            width: 250,
-            justifyContent: 'center',
-            borderRadius: 10,
-          }}>
-          <Text
-            style={{
-              color: 'white',
-              fontSize: 15,
-              letterSpacing: 1,
-              textAlign: 'center',
-            }}>
-            mandar datos
-          </Text>
-        </TouchableOpacity>
+        
       </View>
       <View
         style={{

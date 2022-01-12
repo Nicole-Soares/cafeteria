@@ -1,9 +1,10 @@
 import React, {useContext} from 'react';
 import {View, Text} from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
+import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import MenuUsuario from '../componentes/MenuUsuario';
 import {AppContext} from '../context/AppContext';
 import {styles} from '../theme/Style';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function InfoCompra(props) {
   const {orden, setOrden} = useContext(AppContext);
@@ -31,7 +32,16 @@ export default function InfoCompra(props) {
               width:"100%",
               height:"20%"
             }}>
-          <Text style={{color:"white", fontSize:25, letterSpacing:1}}>Detalle de las compras</Text>
+              <View style={{justifyContent:"flex-start", width:"100%", alignContent:"flex-start", height:"40%"}}>
+                <TouchableOpacity onPress={props.navigation.navigate("SesionScreen")}>
+                <Icon name="arrow-left" color="white" size={20}/>
+                </TouchableOpacity>
+            
+              </View>
+              <View style={{height:"60%"}}>
+              <Text style={{color:"white", fontSize:25, letterSpacing:1}}>Detalle de las compras</Text>
+              </View>
+        
       </View>
       <ScrollView>
         <View>
