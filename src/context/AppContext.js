@@ -33,6 +33,7 @@ export default function AppProvider({children}) {
  const [historial, setHistorial] = useState([]);
  const [horarioSeleccionado, setHorarioSeleccionado] = useState(null);
  const [idSeleccion, serIdSeleccion] = useState([]);
+ const [usuario, setUsuario] = useState()
  
   return (
     <AppContext.Provider

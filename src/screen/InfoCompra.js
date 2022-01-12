@@ -7,7 +7,7 @@ import {styles} from '../theme/Style';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function InfoCompra(props) {
-  const {orden, setOrden} = useContext(AppContext);
+  const {orden, setOrden, historial} = useContext(AppContext);
 
   /*useEffect(() => {
     let idParam = props.id|| props.route.params.id;
